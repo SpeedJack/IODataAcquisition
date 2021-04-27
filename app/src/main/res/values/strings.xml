@@ -7,4 +7,7 @@
     <string name="AccYLabel">Y axis value</string>
     <string name="AccZLabel">Z axis value</string>
     <string name="TimestampLabel">Timestamp</string>
+    <string name="IndoorLabel">Indoor</string>
+    <string name="OutdoorLabel">Outdoor</string>
+    <string name="SettingsLabel">Settings</string>
 </resources>

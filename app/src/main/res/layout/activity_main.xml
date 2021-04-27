@@ -10,7 +10,7 @@
         android:id="@+id/Timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/TimestampLabel"
         app:layout_constraintStart_toStartOf="@+id/accelerationZLabel"
         app:layout_constraintTop_toBottomOf="@+id/accelerationZLabel" />
@@ -19,7 +19,7 @@
         android:id="@+id/accZ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/accY" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/accelerationZLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/AccZLabel"
         app:layout_constraintStart_toStartOf="@+id/accelerationYLabel"
         app:layout_constraintTop_toBottomOf="@+id/accelerationYLabel" />
@@ -36,7 +36,7 @@
         android:id="@+id/accY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/accX" />
 
@@ -44,7 +44,7 @@
         android:id="@+id/accelerationYLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/AccYLabel"
         app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
         app:layout_constraintTop_toBottomOf="@+id/accelerationXLabel" />
@@ -90,7 +90,7 @@
         android:id="@+id/accX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -98,7 +98,7 @@
         android:id="@+id/accelerationXLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/AccXLabel"
         app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
         app:layout_constraintTop_toBottomOf="@+id/StartMonitoring" />
@@ -107,8 +107,47 @@
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/accZ" />
+
+    <Switch
+        android:id="@+id/IOSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textOff="@string/OutdoorLabel"
+        android:textOn="@string/IndoorLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="66dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/SettingsLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Timestamp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IndoorLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IOSwitch"
+        app:layout_constraintTop_toTopOf="@+id/IOSwitch" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OutdoorLabel"
+        app:layout_constraintEnd_toStartOf="@+id/IOSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/IOSwitch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
