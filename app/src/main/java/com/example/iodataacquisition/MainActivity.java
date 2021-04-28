@@ -17,9 +17,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    /* Constant for the selection of the type of the accelerometer
-       admitted value [STANDARD\LINEAR] */
-    static final String whichAccelerometer = "LINEAR";
     static final String TAG = MainActivity.class.getName();
     static final int servicePeriod = 10; //seconds. Measure after how many seconds a service is woke up in order to obtain the data from the sensor
 
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     // AccelerometerListener accelerometerListener;
     sensorMonitoringService sensorMonitoringService;
     /*Is listening?*/
-    boolean accelerometerListening = false;
+    boolean sensorListening = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,27 +40,21 @@ public class MainActivity extends AppCompatActivity {
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i(TAG,"Ricevuto Intent");
+            Log.i(TAG,"Intent received");
             TextView tvT = findViewById(R.id.timestamp);
-            TextView tvX = findViewById(R.id.accX);
-            TextView tvY = findViewById(R.id.accY);
-            TextView tvZ = findViewById(R.id.accZ);
+            TextView tvL = findViewById(R.id.light);
             long timestamp = intent.getLongExtra("timestamp",0);
-            float x = intent.getFloatExtra("accX",0);
-            float y = intent.getFloatExtra("accY",0);
-            float z = intent.getFloatExtra("accZ",0);
+            float light = intent.getFloatExtra("light",0);
             tvT.setText(String.valueOf(timestamp));
-            tvX.setText(String.valueOf(x));
-            tvY.setText(String.valueOf(y));
-            tvZ.setText(String.valueOf(z));
+            tvL.setText(String.valueOf(light));
         }
     };
 
 //  Obtain a reference to the accelerometer and register a listener
-    public void initAccelerometer(View view){
+    public void initMonitoring(View view){
         Intent i = new Intent(getApplicationContext(), sensorMonitoringService.class );
         startService(i);
-        if(this.accelerometerListening){
+        if(this.sensorListening){
             return;
         }
         this.scheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -75,16 +66,16 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.i(TAG, "initAccelerometer: " + ((Switch) findViewById(R.id.IOSwitch)).isChecked());
         this.scheduledIntent = PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        scheduler.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 100000, scheduledIntent);
-        this.accelerometerListening = true;
+        scheduler.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000, scheduledIntent);
+        this.sensorListening = true;
     }
 
-    public void deregisterAccelerometer(View view){
-        if(this.accelerometerListening = false){
+    public void stopMonitoring(View view){
+        if(this.sensorListening = false){
             return;
         }
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.cancel(this.scheduledIntent);
-        this.accelerometerListening = false;
+        this.sensorListening = false;
     }
 }

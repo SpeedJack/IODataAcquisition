@@ -12,40 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/TimestampLabel"
-        app:layout_constraintStart_toStartOf="@+id/accelerationZLabel"
-        app:layout_constraintTop_toBottomOf="@+id/accelerationZLabel" />
-
-    <TextView
-        android:id="@+id/accZ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/accY" />
-
-    <TextView
-        android:id="@+id/accelerationZLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/AccZLabel"
-        app:layout_constraintStart_toStartOf="@+id/accelerationYLabel"
-        app:layout_constraintTop_toBottomOf="@+id/accelerationYLabel" />
-
-    <TextView
-        android:id="@+id/accY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/accX" />
-
-    <TextView
-        android:id="@+id/accelerationYLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/AccYLabel"
         app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
         app:layout_constraintTop_toBottomOf="@+id/accelerationXLabel" />
 
@@ -56,7 +22,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#4CAF50"
-        android:onClick="initAccelerometer"
+        android:onClick="initMonitoring"
         android:text="@string/StartMonitoringBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -81,13 +47,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#F44336"
-        android:onClick="deregisterAccelerometer"
+        android:onClick="stopMonitoring"
         android:text="@string/StopMonitoringBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/accX"
+        android:id="@+id/light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -99,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/AccXLabel"
+        android:text="@string/LightLabel"
         app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
         app:layout_constraintTop_toBottomOf="@+id/StartMonitoring" />
 
@@ -107,9 +73,9 @@
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/accZ" />
+        app:layout_constraintTop_toBottomOf="@+id/light" />
 
     <Switch
         android:id="@+id/IOSwitch"

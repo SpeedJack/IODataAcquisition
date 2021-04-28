@@ -19,24 +19,27 @@ import com.opencsv.CSVWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static com.example.iodataacquisition.MainActivity.servicePeriod;
 
 public class sensorMonitoringService extends Service implements SensorEventListener {
 
     private SensorManager sensorManager = null;
     static final String TAG = MainActivity.class.getName();
-    public static final String BROADCAST_ACTION = "com.example.tracking.updateGUI";
+    public static final String BROADCAST_ACTION = "com.example.tracking.updateLight";
     int indoor = 0;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         this.indoor = intent.getIntExtra("indoor",0);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
-        if(sensorManager.registerListener(this, accelerometer, 0)){
-            Log.i(TAG, "onStartCommand: Listner registrato correttamente");
+        Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        if(sensorManager.registerListener(this, lightSensor, 0)){
+            Log.i(TAG, "onStartCommand: Light listener correctly registered");
         }else{
-            Log.i(TAG, "onStartCommand: Problemi nella registrazione");
+            Log.i(TAG, "onStartCommand: Error occurred while registering the light listener");
         }
         return START_STICKY;
     }
@@ -44,13 +47,9 @@ public class sensorMonitoringService extends Service implements SensorEventListe
     @Override
     public void onSensorChanged(SensorEvent event) {
         long timestamp = event.timestamp;
-        float x = event.values[0];
-        float y = event.values[1];
-        float z = event.values[2];
+        float lightLevel = event.values[0];
         Intent i = new Intent(BROADCAST_ACTION);
-        i.putExtra("accX",x);
-        i.putExtra("accY",y);
-        i.putExtra("accZ",z);
+        i.putExtra("light",lightLevel);
         i.putExtra("timestamp",timestamp);
         sendBroadcast(i);
         this.sensorManager.unregisterListener(this);
@@ -61,7 +60,7 @@ public class sensorMonitoringService extends Service implements SensorEventListe
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        Log.i(TAG,"Accuracy for accelerometer changed! New accuracy is " + String.valueOf(accuracy));
+        Log.i(TAG,"Accuracy for light sensor changed! New accuracy is " + String.valueOf(accuracy));
     }
 
     @Nullable
@@ -75,14 +74,19 @@ public class sensorMonitoringService extends Service implements SensorEventListe
         protected Void doInBackground(SensorEvent... events) {
             SensorEvent event = events[0];
             long timestamp = event.timestamp;
-            float x = event.values[0];
-            float y = event.values[1];
-            float z = event.values[2];
-            String baseDir = getFilesDir().getAbsolutePath();
+            float lightLevel = event.values[0];
+            String baseDir = getFilesDir()+File.separator+ "DataAcquired";
+
+            File directory = new File(baseDir);
+            if(!directory.exists())
+                directory.mkdir();
+            /*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+            Date curDate = new Date();
+            String stringDate = sdf.format(curDate);*/
             String fileName = "sensorsData.csv";
             String filePath = baseDir + File.separator + fileName;
             Log.i(TAG, "doInBackground: saving data to: " + filePath);
-            File f = new File(filePath);
+            File f = new File(directory,filePath);
             CSVWriter writer;
 
             // File exist
@@ -108,7 +112,7 @@ public class sensorMonitoringService extends Service implements SensorEventListe
             }
 
             /*AGGIUNGI DATI DAI SENSORI QUI PER SALVARLI SUL CSV*/
-            String[] data = {String.valueOf(indoor),String.valueOf(timestamp),String.valueOf(x),String.valueOf(y),String.valueOf(z)};
+            String[] data = {String.valueOf(indoor),String.valueOf(timestamp),String.valueOf(lightLevel)};
 
             writer.writeNext(data);
             try {
@@ -119,16 +123,5 @@ public class sensorMonitoringService extends Service implements SensorEventListe
             }
             return null;
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        // I want to restart this service again in one 10 seconds
-        AlarmManager alarm = (AlarmManager)getSystemService(ALARM_SERVICE);
-        alarm.set(
-                alarm.RTC_WAKEUP,
-                System.currentTimeMillis() + (1000 * servicePeriod),
-                PendingIntent.getService(this, 0, new Intent(this, sensorMonitoringService.class), 0)
-        );
     }
 }

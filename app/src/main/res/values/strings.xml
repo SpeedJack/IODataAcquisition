@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">IODataAcquisition</string>
-    <string name="MonitoringLabel">Monitoring Accelerometer:</string>
+    <string name="MonitoringLabel">Monitoring:</string>
     <string name="StartMonitoringBtn">Start</string>
     <string name="StopMonitoringBtn">Stop</string>
-    <string name="AccXLabel">X axis value</string>
-    <string name="AccYLabel">Y axis value</string>
-    <string name="AccZLabel">Z axis value</string>
+    <string name="LightLabel">Light Level</string>
     <string name="TimestampLabel">Timestamp</string>
     <string name="IndoorLabel">Indoor</string>
     <string name="OutdoorLabel">Outdoor</string>
