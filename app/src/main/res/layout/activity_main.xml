@@ -7,31 +7,30 @@
     tools:context="it.unipi.dii.iodataacquisition.MainActivity">
 
     <TextView
-        android:id="@+id/Timestamp"
+        android:id="@+id/TimestampTV_L"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/TimestampLabel"
-        app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
-        app:layout_constraintTop_toBottomOf="@+id/accelerationXLabel" />
+        android:text="@string/TimestampLabel_L"
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/StartBtn" />
 
     <Button
-        android:id="@+id/StartMonitoring"
+        android:id="@+id/StartBtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#4CAF50"
         android:onClick="initMonitoring"
         android:text="@string/StartMonitoringBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/MonitoringTV" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/MonitoringTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:text="@string/MonitoringLabel"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -41,41 +40,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/StopBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#F44336"
         android:onClick="stopMonitoring"
         android:text="@string/StopMonitoringBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/MonitoringTV" />
 
     <TextView
         android:id="@+id/light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/timestamp_L" />
 
     <TextView
-        android:id="@+id/accelerationXLabel"
+        android:id="@+id/LightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/LightLabel"
-        app:layout_constraintStart_toStartOf="@+id/StartMonitoring"
-        app:layout_constraintTop_toBottomOf="@+id/StartMonitoring" />
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/TimestampTV_L" />
 
     <TextView
-        android:id="@+id/timestamp"
+        android:id="@+id/timestamp_L"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/light" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/StopBtn" />
 
     <Switch
         android:id="@+id/IOSwitch"
@@ -92,11 +91,10 @@
         android:id="@+id/textView2"
         android:layout_width="66dp"
         android:layout_height="22dp"
-        android:layout_marginTop="16dp"
         android:text="@string/SettingsLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Timestamp" />
+        app:layout_constraintTop_toBottomOf="@+id/ProximityTV" />
 
     <TextView
         android:id="@+id/textView3"
@@ -115,5 +113,56 @@
         app:layout_constraintEnd_toStartOf="@+id/IOSwitch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/IOSwitch" />
+
+    <TextView
+        android:id="@+id/WiFiTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/WiFiAPLabel"
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/LightTV" />
+
+    <TextView
+        android:id="@+id/wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/light" />
+
+    <TextView
+        android:id="@+id/TimestampTV_P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/TimestampLabel_P"
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/WiFiTV" />
+
+    <TextView
+        android:id="@+id/timestamp_P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/wifi" />
+
+    <TextView
+        android:id="@+id/ProximityTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ProximityLabel"
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/TimestampTV_P" />
+
+    <TextView
+        android:id="@+id/proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/timestamp_P" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

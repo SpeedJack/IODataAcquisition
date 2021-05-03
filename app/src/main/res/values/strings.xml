@@ -4,8 +4,11 @@
     <string name="StartMonitoringBtn">Start</string>
     <string name="StopMonitoringBtn">Stop</string>
     <string name="LightLabel">Light Level</string>
-    <string name="TimestampLabel">Timestamp</string>
+    <string name="TimestampLabel_L">Timestamp(L)</string>
+    <string name="TimestampLabel_P">Timestamp(P)</string>
     <string name="IndoorLabel">Indoor</string>
     <string name="OutdoorLabel">Outdoor</string>
     <string name="SettingsLabel">Settings</string>
+    <string name="WiFiAPLabel">WiFi AP</string>
+    <string name="ProximityLabel">Proximity</string>
 </resources>
