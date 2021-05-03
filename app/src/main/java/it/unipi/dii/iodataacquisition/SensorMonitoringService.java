@@ -1,6 +1,9 @@
 package it.unipi.dii.iodataacquisition;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,6 +12,7 @@ import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Switch;
 
 import androidx.annotation.Nullable;
 
@@ -18,7 +22,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class sensorMonitoringService extends Service implements SensorEventListener
+public class SensorMonitoringService extends Service implements SensorEventListener
 {
 
 	public static final String BROADCAST_ACTION = "com.example.tracking.updateLight";
@@ -32,6 +36,12 @@ public class sensorMonitoringService extends Service implements SensorEventListe
 		this.indoor = intent.getIntExtra("indoor", 0);
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+		Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+		if (sensorManager.registerListener(this, proximitySensor, -1)) {
+			Log.i(TAG, "onStartCommand: Proximity listener correctly registered");
+		} else {
+			Log.i(TAG, "onStartCommand: Error occurred while registering the proximity listener");
+		}
 		if (sensorManager.registerListener(this, lightSensor, 0)) {
 			Log.i(TAG, "onStartCommand: Light listener correctly registered");
 		} else {
@@ -43,12 +53,18 @@ public class sensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public void onSensorChanged(SensorEvent event)
 	{
-		long timestamp = event.timestamp;
-		float lightLevel = event.values[0];
-		Intent i = new Intent(BROADCAST_ACTION);
-		i.putExtra("light", lightLevel);
-		i.putExtra("timestamp", timestamp);
-		sendBroadcast(i);
+		Log.i(TAG, "onSensorChanged called");
+		if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+			long timestamp = event.timestamp;
+			float prox = event.values[0];
+		} else {
+			long timestamp = event.timestamp;
+			float lightLevel = event.values[0];
+			Intent i = new Intent(BROADCAST_ACTION);
+			i.putExtra("light", lightLevel);
+			i.putExtra("timestamp", timestamp);
+			sendBroadcast(i);
+		}
 		this.sensorManager.unregisterListener(this);
 		new SensorEventLoggerTask().execute(event);
 		// stop the service
@@ -59,6 +75,15 @@ public class sensorMonitoringService extends Service implements SensorEventListe
 	public void onAccuracyChanged(Sensor sensor, int accuracy)
 	{
 		Log.i(TAG, "Accuracy for light sensor changed! New accuracy is " + accuracy);
+	}
+
+	@Override
+	public void onDestroy()
+	{
+		AlarmManager scheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(getApplicationContext(), SensorMonitoringService.class);
+		PendingIntent scheduledIntent = PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		scheduler.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,1000, scheduledIntent);
 	}
 
 	@Nullable
@@ -86,7 +111,6 @@ public class sensorMonitoringService extends Service implements SensorEventListe
             String stringDate = sdf.format(curDate);*/
 			String fileName = "sensorsData.csv";
 			String filePath = baseDir + File.separator + fileName;
-			Log.i(TAG, "doInBackground: saving data to: " + filePath);
 			File f = new File(filePath);
 			CSVWriter writer;
 
@@ -111,7 +135,7 @@ public class sensorMonitoringService extends Service implements SensorEventListe
 			}
 
 			/*AGGIUNGI DATI DAI SENSORI QUI PER SALVARLI SUL CSV*/
-			String[] data = {String.valueOf(indoor), String.valueOf(timestamp), String.valueOf(lightLevel)};
+			String[] data = {String.valueOf(indoor), String.valueOf(timestamp), String.valueOf(event.sensor.getType()), String.valueOf(lightLevel)};
 
 			writer.writeNext(data);
 			try {

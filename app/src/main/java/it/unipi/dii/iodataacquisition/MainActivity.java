@@ -14,9 +14,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.unipi.dii.iodataacquisition.R;
-
-
 public class MainActivity extends AppCompatActivity
 {
 
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 	PendingIntent scheduledIntent = null;
 	/* Instance of the listener class */
 	// AccelerometerListener accelerometerListener;
-	sensorMonitoringService sensorMonitoringService;
+	SensorMonitoringService sensorMonitoringService;
 	/*Is listening?*/
 	boolean sensorListening = false;
 
@@ -50,19 +47,19 @@ public class MainActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		registerReceiver(broadcastReceiver, new IntentFilter(it.unipi.dii.iodataacquisition.sensorMonitoringService.BROADCAST_ACTION));
+		registerReceiver(broadcastReceiver, new IntentFilter(SensorMonitoringService.BROADCAST_ACTION));
 	}
 
 	//  Obtain a reference to the accelerometer and register a listener
 	public void initMonitoring(View view)
 	{
-		Intent i = new Intent(getApplicationContext(), sensorMonitoringService.class);
-		startService(i);
+	//	Intent i = new Intent(getApplicationContext(), sensorMonitoringService.class);
+	//	startService(i);
 		if (this.sensorListening) {
 			return;
 		}
 		this.scheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-		Intent intent = new Intent(getApplicationContext(), sensorMonitoringService.class);
+		Intent intent = new Intent(getApplicationContext(), SensorMonitoringService.class);
 		if (((Switch) findViewById(R.id.IOSwitch)).isChecked()) {
 			intent.putExtra("indoor", 1);
 		} else {
@@ -70,7 +67,7 @@ public class MainActivity extends AppCompatActivity
 		}
 		Log.i(TAG, "initAccelerometer: " + ((Switch) findViewById(R.id.IOSwitch)).isChecked());
 		this.scheduledIntent = PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		scheduler.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000, scheduledIntent);
+		scheduler.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,1000, scheduledIntent);
 		this.sensorListening = true;
 	}
 
