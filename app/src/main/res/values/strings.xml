@@ -11,4 +11,5 @@
     <string name="SettingsLabel">Settings</string>
     <string name="WiFiAPLabel">WiFi AP</string>
     <string name="ProximityLabel">Proximity</string>
+    <string name="BLTLabel">BLT Number</string>
 </resources>

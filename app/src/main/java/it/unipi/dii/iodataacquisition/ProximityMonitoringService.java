@@ -23,17 +23,19 @@ import java.io.IOException;
 
 import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_PROXIMITY;
 import static it.unipi.dii.iodataacquisition.MainActivity.CODE_PROXIMITY;
-import static it.unipi.dii.iodataacquisition.MainActivity.SAMPLING_RATE;
+import static it.unipi.dii.iodataacquisition.MainActivity.TIMEOUT_HW_MILLISECONDS;
 
 public class ProximityMonitoringService extends Service implements SensorEventListener
 {
 
 	static final String TAG = ProximityMonitoringService.class.getName();
 	private SensorManager sensorManager = null;
+	private String sessionFileName;
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
+		sessionFileName = intent.getStringExtra("file_name");
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 		if (sensorManager.registerListener(this, proximitySensor, 0)) {
@@ -64,7 +66,7 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 		i.putExtra("timestamp", timestamp);
 		sendBroadcast(i);
 		this.sensorManager.unregisterListener(this);
-		new ProximityMonitoringService.SensorEventLoggerTask().execute(event);
+		new ProximityMonitoringService.SensorEventLoggerTask(sessionFileName).execute(event);
 		// stop the service
 		stopSelf();
 	}
@@ -80,8 +82,10 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 	{
 		AlarmManager scheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent(getApplicationContext(), ProximityMonitoringService.class);
+		intent.putExtra("file_name",sessionFileName);
 		PendingIntent scheduledIntent = PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		scheduler.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,SAMPLING_RATE, scheduledIntent);
+		long at = System.currentTimeMillis() + TIMEOUT_HW_MILLISECONDS;
+		scheduler.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,at, scheduledIntent);
 	}
 
 	@Nullable
@@ -93,6 +97,13 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 
 	private class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void>
 	{
+		private String sessionFileName;
+
+		public SensorEventLoggerTask(String sessionFileName)
+		{
+			this.sessionFileName = sessionFileName;
+		}
+
 		@Override
 		protected Void doInBackground(SensorEvent... events)
 		{
@@ -103,7 +114,7 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 			/*Reference to the directory where the data will be saved*/
 			String baseDir = getFilesDir() + File.separator + "DataAcquired";
 			/*Reference to the file where the data will be saved*/
-			String filePath = baseDir + File.separator + "sensorsData.csv";
+			String filePath = baseDir + File.separator + sessionFileName;
 
 			File directory = new File(baseDir);
 			if (!directory.exists()) {

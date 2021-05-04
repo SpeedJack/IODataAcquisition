@@ -10,6 +10,7 @@
         android:id="@+id/TimestampTV_L"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/TimestampLabel_L"
         app:layout_constraintStart_toStartOf="@+id/StartBtn"
         app:layout_constraintTop_toBottomOf="@+id/StartBtn" />
@@ -56,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/StopBtn"
         app:layout_constraintTop_toBottomOf="@+id/timestamp_L" />
 
@@ -73,14 +75,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/StopBtn"
         app:layout_constraintTop_toBottomOf="@+id/StopBtn" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/IOSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="logTransition"
         android:textOff="@string/OutdoorLabel"
         android:textOn="@string/IndoorLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/StopBtn"
         app:layout_constraintTop_toBottomOf="@+id/light" />
 
@@ -138,15 +143,16 @@
         android:layout_marginTop="8dp"
         android:text="@string/TimestampLabel_P"
         app:layout_constraintStart_toStartOf="@+id/StartBtn"
-        app:layout_constraintTop_toBottomOf="@+id/WiFiTV" />
+        app:layout_constraintTop_toBottomOf="@+id/BLT_TV" />
 
     <TextView
         android:id="@+id/timestamp_P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/StopBtn"
-        app:layout_constraintTop_toBottomOf="@+id/wifi" />
+        app:layout_constraintTop_toBottomOf="@+id/blt" />
 
     <TextView
         android:id="@+id/ProximityTV"
@@ -162,7 +168,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/StopBtn"
         app:layout_constraintTop_toBottomOf="@+id/timestamp_P" />
+
+    <TextView
+        android:id="@+id/BLT_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/BLTLabel"
+        app:layout_constraintStart_toStartOf="@+id/StartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/WiFiTV" />
+
+    <TextView
+        android:id="@+id/blt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="@+id/StopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/wifi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
