@@ -19,6 +19,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +40,9 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener
+import info.hoang8f.android.segmented.SegmentedGroup;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener
 {
 	private static final int REQUEST_ENABLE_BT = 0xDEADBEEF;
 
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		public void onServiceConnected(ComponentName name, IBinder service)
 		{
 			boundService = ((SensorMonitoringService.ServiceBinder)service).getService();
-			boundService.setIOStatus(((SwitchCompat)findViewById(R.id.ioSwitch)).isChecked());
+			boundService.setIOStatus(((RadioButton)findViewById(R.id.indoorButton)).isChecked());
 			boundService.collectCurrentIOStatus();
 			boundService.enableCollection();
 		}
@@ -168,6 +172,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			iostatus = savedInstanceState.getBoolean("status_indoor");
 		}
 
+		SegmentedGroup ioSwitch = (SegmentedGroup)findViewById(R.id.ioSwitch);
+		ioSwitch.check(iostatus ? R.id.indoorButton : R.id.outdoorButton);
+		ioSwitch.setOnCheckedChangeListener(this);
+
 		setMonitoringEnabled(monenabled);
 		if (monenabled) {
 
@@ -181,8 +189,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				return;
 			}
 		}
-		SwitchCompat ioSwitch = (SwitchCompat)findViewById(R.id.ioSwitch);
-		ioSwitch.setChecked(iostatus);
 	}
 
 	@Override
@@ -190,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	{
 		super.onSaveInstanceState(outState);
 		outState.putBoolean("monitoring_enabled", monitoringEnabled);
-		outState.putBoolean("status_indoor", ((SwitchCompat)findViewById(R.id.ioSwitch)).isChecked());
+		outState.putBoolean("status_indoor", ((RadioButton)findViewById(R.id.indoorButton)).isChecked());
 	}
 
 	@Override
@@ -299,7 +305,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	{
 		if (v.getId() == R.id.monitoringToggleButton)
 			toggleMonitoring();
-		else if (v.getId() == R.id.ioSwitch && boundService != null)
-			boundService.setIOStatus(((SwitchCompat)v).isChecked());
+	}
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId)
+	{
+		if (group.getId() == R.id.ioSwitch && boundService != null)
+			boundService.setIOStatus(checkedId == R.id.indoorButton);
 	}
 }

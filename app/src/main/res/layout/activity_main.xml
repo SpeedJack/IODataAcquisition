@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/TimestampLabel_L"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/monitoringToggleButton" />
+        app:layout_constraintTop_toBottomOf="@+id/ioSwitch" />
 
     <TextView
         android:id="@+id/appTitleTextView"
@@ -53,24 +53,11 @@
         android:id="@+id/timestamp_L"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/monitoringToggleButton" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/ioSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="onClick"
-        android:textOff="@string/outdoor"
-        android:textOn="@string/indoor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProximityTV"
-        app:showText="false" />
+        app:layout_constraintTop_toBottomOf="@+id/ioSwitch" />
 
     <TextView
         android:id="@+id/WiFiTV"
@@ -157,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:drawablePadding="5dp"
         android:maxLines="1"
         android:text="@string/monitoring_service_unknown"
@@ -178,25 +165,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monitoringStatusTextView" />
 
-    <TextView
-        android:id="@+id/outdoorTextView"
+    <info.hoang8f.android.segmented.SegmentedGroup
+        android:id="@+id/ioSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/outdoor"
-        app:layout_constraintBottom_toBottomOf="@+id/ioSwitch"
-        app:layout_constraintEnd_toStartOf="@+id/ioSwitch"
-        app:layout_constraintTop_toTopOf="@+id/ioSwitch" />
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monitoringToggleButton"
+        app:sc_border_width="2dp"
+        app:sc_corner_radius="10dp">
 
-    <TextView
-        android:id="@+id/indoorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/indoor"
-        app:layout_constraintBottom_toBottomOf="@+id/ioSwitch"
-        app:layout_constraintStart_toEndOf="@+id/ioSwitch"
-        app:layout_constraintTop_toTopOf="@+id/ioSwitch"
-        app:layout_constraintVertical_bias="0.517" />
+        <RadioButton
+            android:id="@+id/outdoorButton"
+            style="@style/RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="@dimen/io_button_width"
+            android:text="@string/outdoor"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/indoorButton"
+            style="@style/RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="@dimen/io_button_width"
+            android:text="@string/indoor"
+            android:textSize="30sp" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
