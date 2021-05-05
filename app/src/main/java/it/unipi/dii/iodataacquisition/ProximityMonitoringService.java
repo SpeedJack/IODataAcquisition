@@ -21,8 +21,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_PROXIMITY;
-import static it.unipi.dii.iodataacquisition.MainActivity.CODE_PROXIMITY;
+//import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_PROXIMITY;
+//import static it.unipi.dii.iodataacquisition.MainActivity.CODE_PROXIMITY;
 import static it.unipi.dii.iodataacquisition.MainActivity.TIMEOUT_HW_MILLISECONDS;
 
 public class ProximityMonitoringService extends Service implements SensorEventListener
@@ -61,10 +61,10 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 
 		long timestamp = event.timestamp;
 		float proximity = event.values[0];
-		Intent i = new Intent(BROADCAST_UPDATE_PROXIMITY);
-		i.putExtra("proximity", proximity);
-		i.putExtra("timestamp", timestamp);
-		sendBroadcast(i);
+	//	Intent i = new Intent(BROADCAST_UPDATE_PROXIMITY);
+	//	i.putExtra("proximity", proximity);
+	//	i.putExtra("timestamp", timestamp);
+		//sendBroadcast(i);
 		this.sensorManager.unregisterListener(this);
 		new ProximityMonitoringService.SensorEventLoggerTask(sessionFileName).execute(event);
 		// stop the service
@@ -143,9 +143,9 @@ public class ProximityMonitoringService extends Service implements SensorEventLi
 			}
 
 			/*AGGIUNGI DATI DAI SENSORI QUI PER SALVARLI SUL CSV*/
-			String[] data = {String.valueOf(timestamp), String.valueOf(CODE_PROXIMITY), String.valueOf(proximity)};
+		//	String[] data = {String.valueOf(timestamp), String.valueOf(CODE_PROXIMITY), String.valueOf(proximity)};
 
-			writer.writeNext(data);
+		//	writer.writeNext(data);
 			try {
 				writer.close();
 			} catch (IOException e) {

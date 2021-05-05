@@ -13,8 +13,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_BLT_NUMBER;
-import static it.unipi.dii.iodataacquisition.MainActivity.CODE_BLT;
+//import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_BLT_NUMBER;
+//import static it.unipi.dii.iodataacquisition.MainActivity.CODE_BLT;
 
 public class BLTCounter extends BroadcastReceiver
 {
@@ -41,9 +41,9 @@ public class BLTCounter extends BroadcastReceiver
 			/*-------------------The discovery is finished----------------------------*/
 
 			/*------------------Code-in-order-to-update-the-GUI-----------------------*/
-			Intent intentBLTNumberUpdateGUI = new Intent(BROADCAST_UPDATE_BLT_NUMBER);
-			intentBLTNumberUpdateGUI.putExtra("BLT_number", lastBLTNumber);
-			context.sendBroadcast(intentBLTNumberUpdateGUI);
+	//		Intent intentBLTNumberUpdateGUI = new Intent(BROADCAST_UPDATE_BLT_NUMBER);
+	//		intentBLTNumberUpdateGUI.putExtra("BLT_number", lastBLTNumber);
+	//		context.sendBroadcast(intentBLTNumberUpdateGUI);
 			/*------------------------------------------------------------------------*/
 
 			/*---------------------Logging--------------------------------------------*/
@@ -72,8 +72,8 @@ public class BLTCounter extends BroadcastReceiver
 					return;
 				}
 			}
-			String[] data = {String.valueOf(timestamp), String.valueOf(CODE_BLT), String.valueOf(lastBLTNumber)};
-			writer.writeNext(data);
+	//		String[] data = {String.valueOf(timestamp), String.valueOf(CODE_BLT), String.valueOf(lastBLTNumber)};
+	//		writer.writeNext(data);
 			try {
 				writer.close();
 			} catch (IOException e) {

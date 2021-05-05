@@ -2,17 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.unipi.dii.iodataacquisition">
 
-    <!-- Permission needed in order to get the information about WiFi AccessPoint   -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-
-    <!-- Permission needed in order to get the information about the Bluetooth devices   -->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-                        <!-- Android Version >= 10   -->
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,16 +16,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IODataAcquisition">
-        <activity android:name="it.unipi.dii.iodataacquisition.MainActivity">
+        <service
+            android:name=".SensorMonitoringService"
+            android:enabled="true"
+            android:exported="false"></service>
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="it.unipi.dii.iodataacquisition.LightMonitoringService" />
-        <service android:name="it.unipi.dii.iodataacquisition.WiFiBltMonitoringService" />
-        <service android:name="it.unipi.dii.iodataacquisition.ProximityMonitoringService" />
+
+        <service android:name=".LightMonitoringService" />
+        <service android:name=".WiFiBltMonitoringService" />
+        <service android:name=".ProximityMonitoringService" />
     </application>
 
 </manifest>

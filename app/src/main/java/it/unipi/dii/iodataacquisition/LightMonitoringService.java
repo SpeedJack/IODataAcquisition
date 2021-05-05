@@ -21,8 +21,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_LIGHT;
-import static it.unipi.dii.iodataacquisition.MainActivity.CODE_LIGHT_SENSOR;
+//import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_LIGHT;
+//import static it.unipi.dii.iodataacquisition.MainActivity.CODE_LIGHT_SENSOR;
 import static it.unipi.dii.iodataacquisition.MainActivity.TIMEOUT_HW_MILLISECONDS;
 
 public class LightMonitoringService extends Service implements SensorEventListener
@@ -61,10 +61,10 @@ public class LightMonitoringService extends Service implements SensorEventListen
 
 		long timestamp = event.timestamp;
 		float lightLevel = event.values[0];
-		Intent i = new Intent(BROADCAST_UPDATE_LIGHT);
-		i.putExtra("light", lightLevel);
-		i.putExtra("timestamp", timestamp);
-		sendBroadcast(i);
+	//	Intent i = new Intent(BROADCAST_UPDATE_LIGHT);
+	//	i.putExtra("light", lightLevel);
+	//	i.putExtra("timestamp", timestamp);
+	//	sendBroadcast(i);
 		this.sensorManager.unregisterListener(this);
 		new LightMonitoringService.SensorEventLoggerTask(sessionFileName).execute(event);
 		// stop the service
@@ -143,9 +143,9 @@ public class LightMonitoringService extends Service implements SensorEventListen
 			}
 
 			/*AGGIUNGI DATI DAI SENSORI QUI PER SALVARLI SUL CSV*/
-			String[] data = {String.valueOf(timestamp), String.valueOf(CODE_LIGHT_SENSOR), String.valueOf(lightLevel)};
+	//		String[] data = {String.valueOf(timestamp), String.valueOf(CODE_LIGHT_SENSOR), String.valueOf(lightLevel)};
 
-			writer.writeNext(data);
+	//		writer.writeNext(data);
 			try {
 				writer.close();
 			} catch (IOException e) {

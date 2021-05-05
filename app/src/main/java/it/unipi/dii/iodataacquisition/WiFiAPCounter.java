@@ -14,8 +14,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_WIFI_NUMBER;
-import static it.unipi.dii.iodataacquisition.MainActivity.CODE_WIFI_AP;
+//import static it.unipi.dii.iodataacquisition.MainActivity.BROADCAST_UPDATE_WIFI_NUMBER;
+//import static it.unipi.dii.iodataacquisition.MainActivity.CODE_WIFI_AP;
 
 public class WiFiAPCounter extends BroadcastReceiver
 {
@@ -23,11 +23,13 @@ public class WiFiAPCounter extends BroadcastReceiver
 	int lastWiFiAPNumber = -1;
 	String baseDir;
 	String filePath;
+	MainActivity activity;
 
-	public WiFiAPCounter(String baseDir, String filePath)
+	public WiFiAPCounter(String baseDir, String filePath, MainActivity activity)
 	{
 		this.baseDir = baseDir;
 		this.filePath = filePath;
+		this.activity = activity;
 	}
 
 	@Override
@@ -41,9 +43,10 @@ public class WiFiAPCounter extends BroadcastReceiver
 			lastWiFiAPNumber = results.size();
 
 			/*------------------Code-in-order-to-update-the-GUI-----------------------*/
-			Intent intentWiFiNumberUpdateGUI = new Intent(BROADCAST_UPDATE_WIFI_NUMBER);
-			intentWiFiNumberUpdateGUI.putExtra("wifi_number", lastWiFiAPNumber);
-			context.sendBroadcast(intentWiFiNumberUpdateGUI);
+			//Intent intentWiFiNumberUpdateGUI = new Intent(BROADCAST_UPDATE_WIFI_NUMBER);
+			//intentWiFiNumberUpdateGUI.putExtra("wifi_number", lastWiFiAPNumber);
+			//context.sendBroadcast(intentWiFiNumberUpdateGUI);
+	//		activity.setWiFiAPCounter(lastWiFiAPNumber);
 			/*------------------------------------------------------------------------*/
 
 		}else{
@@ -77,8 +80,8 @@ public class WiFiAPCounter extends BroadcastReceiver
 					return;
 				}
 			}
-			String[] data = {String.valueOf(timestamp), String.valueOf(CODE_WIFI_AP), String.valueOf(this.lastWiFiAPNumber)};
-			writer.writeNext(data);
+		//	String[] data = {String.valueOf(timestamp), String.valueOf(CODE_WIFI_AP), String.valueOf(this.lastWiFiAPNumber)};
+		//	writer.writeNext(data);
 			try {
 				writer.close();
 			} catch (IOException e) {

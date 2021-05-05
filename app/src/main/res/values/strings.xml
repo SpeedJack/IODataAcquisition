@@ -6,10 +6,15 @@
     <string name="LightLabel">Light Level</string>
     <string name="TimestampLabel_L">Timestamp(L)</string>
     <string name="TimestampLabel_P">Timestamp(P)</string>
-    <string name="IndoorLabel">Indoor</string>
-    <string name="OutdoorLabel">Outdoor</string>
+    <string name="indoor">Indoor</string>
+    <string name="outdoor">Outdoor</string>
     <string name="SettingsLabel">Settings</string>
     <string name="WiFiAPLabel">WiFi AP</string>
     <string name="ProximityLabel">Proximity</string>
     <string name="BLTLabel">BLT Number</string>
+    <string name="monitoring_service_enabled">Service Enabled</string>
+    <string name="monitoring_service_disabled">Service Disabled</string>
+    <string name="start_monitoring">START</string>
+    <string name="stop_monitoring">STOP</string>
+    <string name="monitoring_service_unknown">Service Status Unknown</string>
 </resources>
