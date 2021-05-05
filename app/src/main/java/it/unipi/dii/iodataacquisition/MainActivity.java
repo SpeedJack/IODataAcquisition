@@ -1,10 +1,7 @@
 package it.unipi.dii.iodataacquisition;
 
 import android.Manifest;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,15 +10,14 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -29,13 +25,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
-import com.opencsv.CSVWriter;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -318,4 +308,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (group.getId() == R.id.ioSwitch && boundService != null)
 			boundService.setIOStatus(checkedId == R.id.indoorButton);
 	}
+
+	/*-----------------------------------------------------------------------*/
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus)
+	{
+		super.onWindowFocusChanged(hasFocus);
+		adaptRadioButtonsToScreen();
+	}
+
+	public void adaptRadioButtonsToScreen() {
+
+		RadioButton radioButtonOutdoor = findViewById(R.id.outdoorButton);
+		int widthDP = radioButtonOutdoor.getWidth();
+		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %d DP", widthDP));
+		int widthPX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthDP, getApplicationContext().getResources().getDisplayMetrics());
+		// 2 is added in order to have some margin
+		int stringLength = radioButtonOutdoor.getText().length() + 2;
+		int letterPX = Math.floorDiv(widthPX , stringLength);
+		float letterSP = letterPX / getResources().getDisplayMetrics().scaledDensity;
+		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %s", letterSP));
+		radioButtonOutdoor.setTextSize(letterSP);
+		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(letterSP);
+	}
+	/*-------------------------------------------------------------------------*/
 }

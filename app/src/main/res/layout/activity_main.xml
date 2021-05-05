@@ -193,7 +193,8 @@
             android:layout_height="wrap_content"
             android:width="@dimen/io_button_width"
             android:text="@string/indoor"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="148dp" />
     </info.hoang8f.android.segmented.SegmentedGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
