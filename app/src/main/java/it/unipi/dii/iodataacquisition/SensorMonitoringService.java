@@ -1,19 +1,28 @@
 package it.unipi.dii.iodataacquisition;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.util.Log;
 
 import com.opencsv.CSVWriter;
@@ -48,6 +57,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private boolean enabled = false;
 	private WiFiAPCounter wiFiAPCounter;
 	private BLTCounter bltCounter;
+	private PowerManager.WakeLock mWakeLock;
 
 	public class ServiceBinder extends Binder
 	{
@@ -119,8 +129,55 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		intentFilter_BLT.addAction(BluetoothDevice.ACTION_FOUND);
 		getApplicationContext().registerReceiver(bltCounter,intentFilter_BLT);
 
+		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+		mWakeLock.acquire();
+
 		Log.d(TAG, "Service started!");
 		return START_STICKY;
+	}
+
+	@Override
+	public void onCreate()
+	{
+		super.onCreate();
+		Log.i(TAG, "onCreate: The service has been created");
+		Notification notification = createNotification();
+		startForeground(1, notification);
+	}
+
+	private Notification createNotification() {
+		String notificationChannelId = "IO DATA ACQUISITION NOTIFICATION CHANNEL";
+
+		// depending on the Android API that we're dealing with we will have
+		// to use a specific method to create the notification
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			NotificationChannel notificationChannel = new NotificationChannel(notificationChannelId,"IO Data Acquisition",NotificationManager.IMPORTANCE_HIGH);
+			notificationChannel.setLightColor(Color.RED);
+			notificationChannel.setDescription("IO Data Acquisition");
+			notificationChannel.enableLights(true);
+			notificationChannel.enableVibration(true);
+			notificationManager.createNotificationChannel(notificationChannel);
+		}
+
+		Intent notificationIntent = new Intent(this, MainActivity.class);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,0);
+
+		Notification.Builder builder;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+			builder = new Notification.Builder(this,notificationChannelId);
+		}else{
+			builder = new Notification.Builder(this);
+		}
+
+		builder.setContentTitle("IODataAcquisition");
+		builder.setContentText("Acquiring data from sensors...");
+		builder.setContentIntent(pendingIntent);
+		builder.setSmallIcon(R.mipmap.ic_launcher);
+		builder.setPriority(Notification.PRIORITY_HIGH);
+
+		return builder.build();
 	}
 
 	@Override
@@ -264,5 +321,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		if (bltCounter != null)
 			getApplicationContext().unregisterReceiver(bltCounter);
 		super.onDestroy();
+		mWakeLock.release();
 	}
+
 }

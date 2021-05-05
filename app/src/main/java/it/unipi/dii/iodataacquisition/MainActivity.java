@@ -258,7 +258,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 
 		serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
-		startService(serviceIntent);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			startForegroundService(serviceIntent);
+		}else {
+			startService(serviceIntent);
+		}
 		if (!bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)) {
 			Log.e(TAG, "Can not bind service.");
 			return;
