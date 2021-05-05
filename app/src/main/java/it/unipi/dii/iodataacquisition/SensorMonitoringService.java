@@ -2,7 +2,9 @@ package it.unipi.dii.iodataacquisition;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,8 +15,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
-
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.opencsv.CSVWriter;
 
@@ -46,6 +46,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private boolean previousIndoor;
 	private final IBinder binder = new ServiceBinder();
 	private boolean enabled = false;
+	private WiFiAPCounter wiFiAPCounter;
+	private BLTCounter bltCounter;
 
 	public class ServiceBinder extends Binder
 	{
@@ -105,6 +107,18 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		else if (!sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_FASTEST))
 			Log.e(TAG, "Unable to register listener for sensor " + proximitySensor.getName() + ".");
 		periodicHandler.post(periodicRunnable);
+
+		wiFiAPCounter = new WiFiAPCounter();
+		IntentFilter intentFilter_WIFI = new IntentFilter();
+		intentFilter_WIFI.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
+		getApplicationContext().registerReceiver(wiFiAPCounter, intentFilter_WIFI);
+
+		bltCounter = new BLTCounter();
+		IntentFilter intentFilter_BLT = new IntentFilter();
+		intentFilter_BLT.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+		intentFilter_BLT.addAction(BluetoothDevice.ACTION_FOUND);
+		getApplicationContext().registerReceiver(bltCounter,intentFilter_BLT);
+
 		Log.d(TAG, "Service started!");
 		return START_STICKY;
 	}
@@ -183,6 +197,18 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		if (System.currentTimeMillis() - lastWiFiBTCheck < WIFI_BT_COLLECT_INTERVAL * 1000)
 			return;
 		lastWiFiBTCheck = System.currentTimeMillis();
+		int lastWiFiAPNumber = wiFiAPCounter.getLastWiFiAPNumber();
+		if(lastWiFiAPNumber != -1){
+			SensorData data = new SensorData("WIFI_ACCESS_POINTS",lastWiFiAPNumber);
+			sendSensorDataToActivity(data);
+			collectedData.add(data);
+		}
+		int lastBLTNumber = bltCounter.getLastBLTNumber();
+		if(lastBLTNumber != -1){
+			SensorData data = new SensorData("BLUETOOTH_DEVICES",lastBLTNumber);
+			sendSensorDataToActivity(data);
+			collectedData.add(data);
+		}
 	}
 
 	public void setIOStatus(boolean indoor)
@@ -228,10 +254,15 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public void onDestroy()
 	{
+		Log.i(TAG, "onDestroy: Distrutto");
 		if (periodicHandler != null && periodicRunnable != null)
 			periodicHandler.removeCallbacks(periodicRunnable);
 		if (sensorManager != null)
 			sensorManager.unregisterListener(this);
+		if (wiFiAPCounter != null)
+			getApplicationContext().unregisterReceiver(wiFiAPCounter);
+		if (bltCounter != null)
+			getApplicationContext().unregisterReceiver(bltCounter);
 		super.onDestroy();
 	}
 }

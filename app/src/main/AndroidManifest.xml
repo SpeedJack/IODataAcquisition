@@ -27,10 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service android:name=".LightMonitoringService" />
-        <service android:name=".WiFiBltMonitoringService" />
-        <service android:name=".ProximityMonitoringService" />
     </application>
 
 </manifest>

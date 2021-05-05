@@ -167,13 +167,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			monenabled = savedInstanceState.getBoolean("monitoring_enabled");
 			iostatus = savedInstanceState.getBoolean("status_indoor");
 		}
+
 		setMonitoringEnabled(monenabled);
-		if (monenabled)
+		if (monenabled) {
+
+			if(serviceIntent == null){
+				serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
+			}
+
 			if (!bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)) {
 				Log.e(TAG, "Can not bind service.");
 				stopMonitoring();
 				return;
 			}
+		}
 		SwitchCompat ioSwitch = (SwitchCompat)findViewById(R.id.ioSwitch);
 		ioSwitch.setChecked(iostatus);
 	}
@@ -292,7 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	{
 		if (v.getId() == R.id.monitoringToggleButton)
 			toggleMonitoring();
-		else if (v.getId() == R.id.ioSwitch)
+		else if (v.getId() == R.id.ioSwitch && boundService != null)
 			boundService.setIOStatus(((SwitchCompat)v).isChecked());
 	}
 }
