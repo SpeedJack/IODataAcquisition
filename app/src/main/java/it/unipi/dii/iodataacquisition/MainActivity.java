@@ -229,7 +229,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (isServiceRunning())
 			return;
 
-		File outputFile = new File(getFilesDir() + File.separator + "collected-data.csv");
+		File outputFile = new File(getExternalFilesDir(null) + File.separator + "collected-data.csv");
+		Log.i(TAG, "startMonitoring: " + getExternalFilesDir(null));
 		if (!outputFile.exists()) {
 			CSVWriter writer;
 			try {
@@ -328,7 +329,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	public void adaptRadioButtonsToScreen()
 	{
 		RadioButton radioButtonOutdoor = findViewById(R.id.outdoorButton);
-		int widthDP = radioButtonOutdoor.getWidth();
+		int widthDP = radioButtonOutdoor.getMeasuredWidth();
 		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %d DP", widthDP));
 		int widthPX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthDP, getApplicationContext().getResources().getDisplayMetrics());
 		// 2 is added in order to have some margin
@@ -336,8 +337,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		int letterPX = Math.floorDiv(widthPX , stringLength);
 		float letterSP = letterPX / getResources().getDisplayMetrics().scaledDensity;
 		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %s", letterSP));
-		radioButtonOutdoor.setTextSize(letterSP);
-		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(letterSP);
+		radioButtonOutdoor.setTextSize(TypedValue.COMPLEX_UNIT_DIP,widthDP/stringLength);
+		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(TypedValue.COMPLEX_UNIT_DIP,widthDP/stringLength);
 	}
 	private boolean isServiceRunning()
 	{

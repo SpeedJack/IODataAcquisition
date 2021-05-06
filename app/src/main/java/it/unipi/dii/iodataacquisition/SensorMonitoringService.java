@@ -1,6 +1,7 @@
 package it.unipi.dii.iodataacquisition;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -80,24 +81,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private PowerManager.WakeLock mWakeLock;
 
 	private PendingIntent activityPendingIntent;
-	private BroadcastReceiver activityReceiver = new BroadcastReceiver()
-	{
-		@Override
-		public void onReceive(Context context, Intent intent)
-		{
-			if (ActivityTransitionResult.hasResult(intent)) {
-				ActivityTransitionResult result = ActivityTransitionResult.extractResult(intent);
-				if (result == null)
-					return;
-				for (ActivityTransitionEvent event: result.getTransitionEvents()) {
-					SensorData data = new SensorData(event);
-					collectedData.add(data);
-					sendSensorDataToActivity(data);
-				}
-			}
-
-		}
-	};
+	private ActivityDetection activityDection;
 
 	@Override
 	public void onLocationChanged(@NonNull Location location)
@@ -211,9 +195,19 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 						.setActivityType(activity).setActivityTransition(transition)
 						.build());
 		ActivityTransitionRequest request = new ActivityTransitionRequest(transitions);
-		Intent activityIntent = new Intent(this, SensorMonitoringService.class);
+		activityDection = new ActivityDetection();
+		Intent intentActivity = new Intent(getApplicationContext(), ActivityDetection.class);
+		intentActivity.setAction(ActivityDetection.INTENT_ACTION);
+
+		PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intentActivity,
+			PendingIntent.FLAG_UPDATE_CURRENT);
+
+		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
+			.requestActivityTransitionUpdates(request, pendingIntent);
+		/*
 		activityPendingIntent = PendingIntent.getActivity(getApplicationContext(),
 			100, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
 		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
 			.requestActivityTransitionUpdates(request, activityPendingIntent);
 		task.addOnSuccessListener(
@@ -224,7 +218,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			e -> {
 			}
 		);
-
+		*/
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 		mWakeLock.acquire(WAKELOCK_TIMEOUT);
@@ -319,7 +313,11 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 	private void collectActivity()
 	{
-		//TODO
+		List<SensorData> sensorData = this.activityDection.flush();
+		for(SensorData data : sensorData){
+			this.collectedData.add(data);
+			sendSensorDataToActivity(data);
+		}
 	}
 
 	public synchronized void flush(boolean force)
@@ -328,7 +326,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			return;
 		lastFlush = System.currentTimeMillis();
 
-		File output = new File(getFilesDir() + File.separator + "collected-data.csv");
+		File output = new File(getExternalFilesDir(null) + File.separator + "collected-data.csv");
 		CSVWriter writer;
 		try {
 			writer = new CSVWriter(new FileWriter(output, true),
@@ -416,7 +414,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			getApplicationContext().unregisterReceiver(wiFiAPCounter);
 		if (bltCounter != null)
 			getApplicationContext().unregisterReceiver(bltCounter);
-
+/*
 		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
 			.removeActivityTransitionUpdates(activityPendingIntent);
 		task.addOnSuccessListener(
@@ -425,7 +423,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		task.addOnFailureListener(
 			e -> Log.e(TAG, e.getMessage())
 		);
-
+*/
+		getApplicationContext().unregisterReceiver(this.activityDection);
 		SensorData data = new SensorData("MONITORING", 0);
 		collectedData.add(data);
 		flush(true);

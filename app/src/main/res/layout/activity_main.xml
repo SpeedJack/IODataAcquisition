@@ -197,4 +197,13 @@
             tools:layout_editor_absoluteX="148dp" />
     </info.hoang8f.android.segmented.SegmentedGroup>
 
+    <TextView
+        android:id="@+id/ActivityTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/ActivityLabel"
+        app:layout_constraintStart_toStartOf="@+id/TimestampTV_L"
+        app:layout_constraintTop_toBottomOf="@+id/ProximityTV" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

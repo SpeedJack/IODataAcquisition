@@ -17,4 +17,5 @@
     <string name="start_monitoring">START</string>
     <string name="stop_monitoring">STOP</string>
     <string name="monitoring_service_unknown">Service Status Unknown</string>
+    <string name="ActivityLabel">Activity</string>
 </resources>
