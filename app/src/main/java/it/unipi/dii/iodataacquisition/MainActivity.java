@@ -1,6 +1,7 @@
 package it.unipi.dii.iodataacquisition;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -26,6 +27,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 {
 	private static final int REQUEST_ENABLE_BT = 0xDEADBEEF;
 
-	private boolean monitoringEnabled = false;
 	private Intent serviceIntent;
 
 	private final BroadcastReceiver sensorDataReceiver = new BroadcastReceiver()
@@ -73,28 +78,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 	};
 
-	public static long TIMEOUT_HW_MILLISECONDS = 10000;
-
-	/*--------Since scanning process takes 12 seconds we can use a minor frequency------------*/
-	public static long TIMEOUT_WIFI_BLT_MILLISECONDS = 60000;
-
-	static final String TAG = MainActivity.class.getName();
-
-	/*---Unique constant in order to distinguish between the different permission requests----*/
+	private static final String TAG = MainActivity.class.getName();
 
 	private static final int ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE = 100;
 	private static final int ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE = 101;
 
 	private SensorMonitoringService boundService;
 
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service)
 		{
 			boundService = ((SensorMonitoringService.ServiceBinder)service).getService();
-			boundService.setIOStatus(((RadioButton)findViewById(R.id.indoorButton)).isChecked());
-			boundService.collectCurrentIOStatus();
-			boundService.enableCollection();
+			SegmentedGroup ioSwitch = (SegmentedGroup)findViewById(R.id.ioSwitch);
+			ioSwitch.check(boundService.isIndoor() ? R.id.indoorButton : R.id.outdoorButton);
 		}
 
 		@Override
@@ -135,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private String getDate(long time)
 	{
+		//FIXME: warning
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 		return formatter.format(new Date(time));
 	}
@@ -155,46 +153,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		boolean monenabled = false;
-		boolean iostatus = false;
-		if (savedInstanceState != null) {
-			monenabled = savedInstanceState.getBoolean("monitoring_enabled");
-			iostatus = savedInstanceState.getBoolean("status_indoor");
-		}
 
 		SegmentedGroup ioSwitch = (SegmentedGroup)findViewById(R.id.ioSwitch);
-		ioSwitch.check(iostatus ? R.id.indoorButton : R.id.outdoorButton);
-		ioSwitch.setOnCheckedChangeListener(this);
-
-		setMonitoringEnabled(monenabled);
-		if (monenabled) {
-
-			if(serviceIntent == null){
+		ioSwitch.check(R.id.outdoorButton);
+		boolean serviceRunning = isServiceRunning();
+		setMonitoringEnabled(serviceRunning);
+		if (serviceRunning) {
+			if (serviceIntent == null)
 				serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
-			}
-
-			if (!bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)) {
+			if (!bindService(serviceIntent, serviceConnection, 0)) {
 				Log.e(TAG, "Can not bind service.");
 				stopMonitoring();
-				return;
 			}
 		}
-	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState)
-	{
-		super.onSaveInstanceState(outState);
-		outState.putBoolean("monitoring_enabled", monitoringEnabled);
-		outState.putBoolean("status_indoor", ((RadioButton)findViewById(R.id.indoorButton)).isChecked());
+		ioSwitch.setOnCheckedChangeListener(this);
 	}
 
 	@Override
 	protected void onPause()
 	{
 		super.onPause();
-		if (monitoringEnabled)
-			unregisterReceiver(sensorDataReceiver);
+		if (isServiceRunning())
+			try {
+				unregisterReceiver(sensorDataReceiver);
+			} catch (Exception ignored) {
+			}
 		if (boundService != null)
 			try {
 				unbindService(serviceConnection);
@@ -207,10 +190,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	protected void onResume()
 	{
 		super.onResume();
-		if (!monitoringEnabled)
+		boolean serviceRunning = isServiceRunning();
+		setMonitoringEnabled(serviceRunning);
+		if (serviceRunning)
 			return;
+		//FIXME: receiver does not work after resume
 		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
-		if (!bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)) {
+		if (serviceIntent == null)
+			serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
+		if (boundService == null && !bindService(serviceIntent, serviceConnection, 0)) {
 			Log.e(TAG, "Can not bind service.");
 			stopMonitoring();
 		}
@@ -226,7 +214,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			R.string.monitoring_service_enabled : R.string.monitoring_service_disabled);
 		ToggleButton toggleButton = findViewById(R.id.monitoringToggleButton);
 		toggleButton.setChecked(enabled);
-		monitoringEnabled = enabled;
 	}
 
 	private void setMonitoringEnabled()
@@ -236,8 +223,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private void startMonitoring()
 	{
-		if (monitoringEnabled)
+		if (isServiceRunning())
 			return;
+
+		File outputFile = new File(getFilesDir() + File.separator + "collected-data.csv");
+		if (!outputFile.exists()) {
+			CSVWriter writer;
+			try {
+				writer = new CSVWriter(new FileWriter(outputFile, true),
+					',', '"', '\\', "\n");
+				writer.writeNext(
+					new String[]{"timestamp", "sensor_type", "sensor_name", "value", "accuracy"},
+					false);
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 
 		checkPermission(Manifest.permission.ACCESS_FINE_LOCATION,
 			ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE);
@@ -254,12 +257,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 
 		serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
+		serviceIntent.putExtra("Indoor", ((RadioButton)findViewById(R.id.indoorButton)).isChecked());
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
 			startForegroundService(serviceIntent);
-		}else {
+		else
 			startService(serviceIntent);
-		}
+
 		if (!bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)) {
 			Log.e(TAG, "Can not bind service.");
 			return;
@@ -271,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private void stopMonitoring()
 	{
-		if (!monitoringEnabled)
+		if (!isServiceRunning())
 			return;
 		try {
 			unregisterReceiver(sensorDataReceiver);
@@ -279,7 +283,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			Log.d(TAG, "BroadcastReceiver already unregistered.");
 		}
 		if (boundService != null) {
-			boundService.flush();
+			boundService.flush(true);
 			unbindService(serviceConnection);
 		}
 		if (serviceIntent != null)
@@ -289,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private void toggleMonitoring()
 	{
-		if (monitoringEnabled)
+		if (isServiceRunning())
 			stopMonitoring();
 		else
 			startMonitoring();
@@ -306,10 +310,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	public void onCheckedChanged(RadioGroup group, int checkedId)
 	{
 		if (group.getId() == R.id.ioSwitch && boundService != null)
-			boundService.setIOStatus(checkedId == R.id.indoorButton);
+			boundService.setIndoor(checkedId == R.id.indoorButton);
 	}
-
-	/*-----------------------------------------------------------------------*/
 
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus)
@@ -318,8 +320,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		adaptRadioButtonsToScreen();
 	}
 
-	public void adaptRadioButtonsToScreen() {
-
+	public void adaptRadioButtonsToScreen()
+	{
 		RadioButton radioButtonOutdoor = findViewById(R.id.outdoorButton);
 		int widthDP = radioButtonOutdoor.getWidth();
 		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %d DP", widthDP));
@@ -332,5 +334,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		radioButtonOutdoor.setTextSize(letterSP);
 		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(letterSP);
 	}
-	/*-------------------------------------------------------------------------*/
+	private boolean isServiceRunning()
+	{
+		ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+		for (ActivityManager.RunningServiceInfo service: manager.getRunningServices(Integer.MAX_VALUE))
+			if (SensorMonitoringService.class.getName().equals(service.service.getClassName()))
+				return true;
+		return false;
+	}
 }

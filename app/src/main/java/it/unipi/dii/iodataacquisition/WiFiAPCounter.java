@@ -24,23 +24,21 @@ public class WiFiAPCounter extends BroadcastReceiver
 	public void onReceive(Context context, Intent intent)
 	{
 		boolean success = intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false);
-		if (success){
+		if (success) {
 			/*Accessing the results of the scanning*/
 			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 			List<ScanResult> results = wifiManager.getScanResults();
 			lastWiFiAPNumber = results.size();
-		}else{
-			Log.i(TAG, "onReceive: requests too frequent! Just wait ");
+		} else {
+			Log.w(TAG, "onReceive: requests too frequent! Just wait.");
 		}
 	}
 
 	public int getLastWiFiAPNumber()
 	{
-		if(previousValue != lastWiFiAPNumber) {
-			previousValue = lastWiFiAPNumber;
-			return lastWiFiAPNumber;
-		}else{
+		if(previousValue == lastWiFiAPNumber)
 			return -1;
-		}
+		previousValue = lastWiFiAPNumber;
+		return lastWiFiAPNumber;
 	}
 }

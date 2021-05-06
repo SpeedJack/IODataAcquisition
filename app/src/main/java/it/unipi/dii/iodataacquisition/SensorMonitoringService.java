@@ -7,7 +7,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -39,11 +38,12 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private static final long PERIODIC_DELAY = 1000;
 	private static final long WIFI_BT_COLLECT_INTERVAL = 60;
 	private static final long FLUSH_INTERVAL = 60;
+	private static final long WAKELOCK_TIMEOUT = 120*60*1000L;
 
 	private SensorManager sensorManager;
 	private WifiManager wifiManager;
 	private BluetoothAdapter bluetoothAdapter;
-	private ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<SensorData>();
+	private final ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<SensorData>();
 	private Handler periodicHandler;
 	private Runnable periodicRunnable;
 	private long lastLightTimestamp = -1;
@@ -52,9 +52,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private long lastWiFiBTCheck = -1;
 	private long lastFlush = -1;
 	private boolean indoor;
-	private boolean previousIndoor;
 	private final IBinder binder = new ServiceBinder();
-	private boolean enabled = false;
 	private WiFiAPCounter wiFiAPCounter;
 	private BLTCounter bltCounter;
 	private PowerManager.WakeLock mWakeLock;
@@ -70,7 +68,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	public SensorMonitoringService()
 	{
 		indoor = false;
-		previousIndoor = indoor;
 	}
 
 	private void scan()
@@ -92,7 +89,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
-		this.enabled = false;
+		indoor = intent.getBooleanExtra("Indoor", false);
 		sensorManager = (SensorManager)getApplicationContext().getSystemService(SENSOR_SERVICE);
 		wifiManager = (WifiManager)getApplicationContext().getSystemService(WIFI_SERVICE);
 		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -131,8 +128,10 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-		mWakeLock.acquire();
+		mWakeLock.acquire(WAKELOCK_TIMEOUT);
 
+		SensorData data = new SensorData("MONITORING", 1);
+		collectedData.add(data);
 		Log.d(TAG, "Service started!");
 		return START_STICKY;
 	}
@@ -141,19 +140,20 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	public void onCreate()
 	{
 		super.onCreate();
-		Log.i(TAG, "onCreate: The service has been created");
+		Log.i(TAG, "onCreate: The service has been created.");
 		Notification notification = createNotification();
 		startForeground(1, notification);
 	}
 
-	private Notification createNotification() {
+	private Notification createNotification()
+	{
 		String notificationChannelId = "IO DATA ACQUISITION NOTIFICATION CHANNEL";
 
 		// depending on the Android API that we're dealing with we will have
 		// to use a specific method to create the notification
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-			NotificationChannel notificationChannel = new NotificationChannel(notificationChannelId,"IO Data Acquisition",NotificationManager.IMPORTANCE_HIGH);
+			NotificationChannel notificationChannel = new NotificationChannel(notificationChannelId, "IO Data Acquisition", NotificationManager.IMPORTANCE_HIGH);
 			notificationChannel.setLightColor(Color.RED);
 			notificationChannel.setDescription("IO Data Acquisition");
 			notificationChannel.enableLights(true);
@@ -162,14 +162,13 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		}
 
 		Intent notificationIntent = new Intent(this, MainActivity.class);
-		PendingIntent pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,0);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this,0, notificationIntent, 0);
 
 		Notification.Builder builder;
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-			builder = new Notification.Builder(this,notificationChannelId);
-		}else{
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+			builder = new Notification.Builder(this, notificationChannelId);
+		else
 			builder = new Notification.Builder(this);
-		}
 
 		builder.setContentTitle("IODataAcquisition");
 		builder.setContentText("Acquiring data from sensors...");
@@ -189,7 +188,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public void onSensorChanged(SensorEvent event)
 	{
-		if (!enabled || event == null || event.values.length == 0)
+		if (event == null || event.values.length == 0)
 			return;
 		if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
 			if (event.timestamp - lastLightTimestamp < 1000 * 1000 * 1000)
@@ -211,7 +210,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	{
 		Intent intent = new Intent("it.unipi.dii.iodataacquisition.SENSORDATA");
 		intent.putExtra("data", data);
-		sendBroadcast(intent);
+		getApplicationContext().sendBroadcast(intent);
 	}
 
 	@Override
@@ -221,12 +220,12 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 	private void collectActivity()
 	{
-
+		//TODO
 	}
 
-	public void flush()
+	public synchronized void flush(boolean force)
 	{
-		if (System.currentTimeMillis() - lastFlush < FLUSH_INTERVAL * 1000)
+		if (!force && System.currentTimeMillis() - lastFlush < FLUSH_INTERVAL * 1000)
 			return;
 		lastFlush = System.currentTimeMillis();
 
@@ -249,69 +248,61 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		}
 	}
 
-	private void collectWiFiBTCount()
+	public void flush()
+	{
+		flush(false);
+	}
+
+	private void collectCounters()
 	{
 		if (System.currentTimeMillis() - lastWiFiBTCheck < WIFI_BT_COLLECT_INTERVAL * 1000)
 			return;
 		lastWiFiBTCheck = System.currentTimeMillis();
 		int lastWiFiAPNumber = wiFiAPCounter.getLastWiFiAPNumber();
-		if(lastWiFiAPNumber != -1){
-			SensorData data = new SensorData("WIFI_ACCESS_POINTS",lastWiFiAPNumber);
-			sendSensorDataToActivity(data);
+		if (lastWiFiAPNumber != -1) {
+			SensorData data = new SensorData("WIFI_ACCESS_POINTS", lastWiFiAPNumber);
 			collectedData.add(data);
+			sendSensorDataToActivity(data);
 		}
 		int lastBLTNumber = bltCounter.getLastBLTNumber();
-		if(lastBLTNumber != -1){
-			SensorData data = new SensorData("BLUETOOTH_DEVICES",lastBLTNumber);
-			sendSensorDataToActivity(data);
+		if (lastBLTNumber != -1) {
+			SensorData data = new SensorData("BLUETOOTH_DEVICES", lastBLTNumber);
 			collectedData.add(data);
+			sendSensorDataToActivity(data);
 		}
+		//TODO: GPS
 	}
 
-	public void setIOStatus(boolean indoor)
+	public void setIndoor(boolean indoor)
 	{
+		if (indoor != this.indoor) {
+			SensorData data = new SensorData("INDOOR", indoor ? 1 : 0);
+			collectedData.add(data);
+		}
 		this.indoor = indoor;
 	}
 
-	public void indoor()
+	public boolean isIndoor()
 	{
-		setIOStatus(true);
-	}
-
-	public void outdoor()
-	{
-		setIOStatus(false);
-	}
-
-	public void enableCollection()
-	{
-		this.enabled = true;
-	}
-
-	public void collectCurrentIOStatus()
-	{
-		previousIndoor = indoor;
-		SensorData data = new SensorData("INDOOR", indoor ? 1 : 0);
-		collectedData.add(data);
-		sendSensorDataToActivity(data);
+		return indoor;
 	}
 
 	public synchronized void periodicCollection()
 	{
-		if (!enabled)
-			return;
-		if (indoor != previousIndoor)
-			collectCurrentIOStatus();
-		collectWiFiBTCount();
+		collectCounters();
 		collectActivity();
 		flush();
 		scan();
+		if (!mWakeLock.isHeld())
+			mWakeLock.acquire(WAKELOCK_TIMEOUT);
 	}
 
 	@Override
 	public void onDestroy()
 	{
-		Log.i(TAG, "onDestroy: Distrutto");
+		Log.d(TAG, "onDestroy: Service destroyed.");
+		if (mWakeLock != null && mWakeLock.isHeld())
+			mWakeLock.release();
 		if (periodicHandler != null && periodicRunnable != null)
 			periodicHandler.removeCallbacks(periodicRunnable);
 		if (sensorManager != null)
@@ -320,8 +311,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			getApplicationContext().unregisterReceiver(wiFiAPCounter);
 		if (bltCounter != null)
 			getApplicationContext().unregisterReceiver(bltCounter);
+		SensorData data = new SensorData("MONITORING", 0);
+		collectedData.add(data);
+		flush(true);
 		super.onDestroy();
-		mWakeLock.release();
 	}
-
 }
