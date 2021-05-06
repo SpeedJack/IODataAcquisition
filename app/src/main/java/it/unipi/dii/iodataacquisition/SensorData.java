@@ -6,6 +6,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 
+import com.google.android.gms.location.ActivityTransitionEvent;
+
 public class SensorData implements Parcelable
 {
 	private String sensorName;
@@ -66,6 +68,13 @@ public class SensorData implements Parcelable
 		this(event.sensor,
 			System.currentTimeMillis() - (SystemClock.elapsedRealtimeNanos() - event.timestamp)/(1000*1000),
 			event.values[0], event.accuracy);
+	}
+
+	public SensorData(ActivityTransitionEvent event)
+	{
+		this("ACTIVITY_" + event.getActivityType(), Sensor.TYPE_ALL,
+			System.currentTimeMillis() - (SystemClock.elapsedRealtimeNanos() - event.getElapsedRealTimeNanos())/(1000*1000),
+			event.getTransitionType(), null);
 	}
 
 	private SensorData(Parcel source)

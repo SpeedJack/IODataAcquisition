@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private static final int ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE = 100;
 	private static final int ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE = 101;
+	private static final int ACTIVITY_RECOGNITION_PERMISSION_CODE = 102;
 
 	private SensorMonitoringService boundService;
 
@@ -126,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			permissionName = "ACCESS_FINE_LOCATION_STATE";
 		else if (requestCode == ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE)
 			permissionName = "ACCESS_BACKGROUND_LOCATION";
+		else if (requestCode == ACTIVITY_RECOGNITION_PERMISSION_CODE)
+			permissionName = "ACTIVITY_RECOGNITION";
 		boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
 		Log.d(TAG, permissionName + " " + (granted ? "granted." : "denied."));
 	}
@@ -242,6 +245,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			}
 		}
 
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+			checkPermission(Manifest.permission.ACTIVITY_RECOGNITION, ACTIVITY_RECOGNITION_PERMISSION_CODE);
 		checkPermission(Manifest.permission.ACCESS_FINE_LOCATION,
 			ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
