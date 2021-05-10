@@ -358,7 +358,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			return;
 		lastFlush = System.currentTimeMillis();
 
-		File output = new File(getExternalFilesDir(null) + File.separator + "collected-data.csv");
+		File output = new File(getFilesDir() + File.separator + "collected-data.csv");
 		CSVWriter writer;
 		try {
 			writer = new CSVWriter(new FileWriter(output, true),

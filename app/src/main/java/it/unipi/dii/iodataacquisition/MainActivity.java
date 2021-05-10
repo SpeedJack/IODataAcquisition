@@ -12,11 +12,14 @@ import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.hardware.Sensor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,6 +29,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.opencsv.CSVWriter;
 
@@ -230,6 +234,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			R.string.monitoring_service_enabled : R.string.monitoring_service_disabled);
 		ToggleButton toggleButton = findViewById(R.id.monitoringToggleButton);
 		toggleButton.setChecked(enabled);
+		Button shareButton = findViewById(R.id.shareButton);
+		shareButton.setEnabled(!enabled);
 	}
 
 	private void setMonitoringEnabled()
@@ -242,8 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (isServiceRunning())
 			return;
 
-		File outputFile = new File(getExternalFilesDir(null) + File.separator + "collected-data.csv");
-		Log.i(TAG, "startMonitoring: " + getExternalFilesDir(null));
+		File outputFile = new File(getFilesDir() + File.separator + "collected-data.csv");
 		if (!outputFile.exists()) {
 			CSVWriter writer;
 			try {
@@ -320,11 +325,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			startMonitoring();
 	}
 
+	private void shareLog()
+	{
+		String filePath = getFilesDir() + File.separator + "collected-data.csv";
+		File logFile = new File(filePath);
+		Intent intentShareFile = new Intent(Intent.ACTION_SEND);
+
+		if(!logFile.exists())
+			return;
+		Uri fileUri = FileProvider.getUriForFile(this, "it.unipi.dii.iodataacquisition", logFile);
+		intentShareFile.setDataAndType(fileUri, "text/csv");
+		intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+		intentShareFile.putExtra(Intent.EXTRA_STREAM, fileUri);
+
+		intentShareFile.putExtra(Intent.EXTRA_SUBJECT, "Log File");
+		intentShareFile.putExtra(Intent.EXTRA_TEXT, "IODataAcquisition Log File");
+
+		startActivity(Intent.createChooser(intentShareFile, "Share Log"));
+	}
+
 	@Override
 	public void onClick(View v)
 	{
 		if (v.getId() == R.id.monitoringToggleButton)
 			toggleMonitoring();
+		else if (v.getId() == R.id.shareButton)
+			shareLog();
 	}
 
 	@Override
