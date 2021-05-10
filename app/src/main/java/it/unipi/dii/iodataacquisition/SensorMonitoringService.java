@@ -31,26 +31,20 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
-import com.google.android.gms.location.ActivityRecognition;
 import com.google.android.gms.location.ActivityRecognitionClient;
-import com.google.android.gms.location.ActivityTransition;
-import com.google.android.gms.location.ActivityTransitionEvent;
-import com.google.android.gms.location.ActivityTransitionRequest;
-import com.google.android.gms.location.ActivityTransitionResult;
-import com.google.android.gms.location.DetectedActivity;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -82,8 +76,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private BLTCounter bltCounter;
 	private PowerManager.WakeLock mWakeLock;
 
-	private PendingIntent activityPendingIntent;
-	private ActivityDetection activityDection;
 
 	private ActivityRecognitionClient mActivityRecognitionClient;
 	static final long DETECTION_INTERVAL_IN_MILLISECONDS = 30 * 1000;
@@ -193,78 +185,28 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		getApplicationContext().registerReceiver(bltCounter, intentFilter_BLT);
 
 		locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-/*
-		List<ActivityTransition> transitions = new ArrayList<>();
-		for (int activity: new int[]{DetectedActivity.IN_VEHICLE, DetectedActivity.ON_BICYCLE,
-						DetectedActivity.ON_FOOT, DetectedActivity.RUNNING,
-						DetectedActivity.STILL, DetectedActivity.TILTING,
-						DetectedActivity.WALKING})
-			for (int transition: new int[]{ActivityTransition.ACTIVITY_TRANSITION_ENTER,
-							ActivityTransition.ACTIVITY_TRANSITION_EXIT})
-				transitions.add(new ActivityTransition.Builder()
-						.setActivityType(activity).setActivityTransition(transition)
-						.build());
-*/
+
 		Task<Void> task = mActivityRecognitionClient.requestActivityUpdates(
 			DETECTION_INTERVAL_IN_MILLISECONDS,
 			getActivityDetectionPendingIntent());
 
-		task.addOnSuccessListener(new OnSuccessListener<Void>() {
-			@Override
-			public void onSuccess(Void result) {
-				Toast.makeText(getApplicationContext(),
-					"Activity Detection Success",
-					Toast.LENGTH_SHORT)
-					.show();
-			}
+		task.addOnSuccessListener(result -> Toast.makeText(getApplicationContext(),
+			"Activity Detection Success",
+			Toast.LENGTH_SHORT)
+			.show());
+
+		task.addOnFailureListener(e -> {
+			Log.i(TAG, "onFailure: " + e.toString()  );
+			e.printStackTrace();
+			Toast.makeText(getApplicationContext(),
+				"Activity Detection Failure",
+				Toast.LENGTH_SHORT)
+				.show();
 		});
 
-		task.addOnFailureListener(new OnFailureListener() {
-			@Override
-			public void onFailure(@NonNull Exception e) {
-				Log.i(TAG, "onFailure: " + e.toString()  );
-				e.printStackTrace();
-				Toast.makeText(getApplicationContext(),
-					"Activity Detection Failure",
-					Toast.LENGTH_SHORT)
-					.show();
-			}
-		});
-			/*
-		ActivityTransitionRequest request = new ActivityTransitionRequest(transitions);
-		activityDection = new ActivityDetection();
-		Intent intentActivity = new Intent(getApplicationContext(), ActivityDetection.class);
-		intentActivity.setAction(ActivityDetection.INTENT_ACTION);
+		// This receiver will receive the updates about the activity performed by the user
+		registerReceiver(activityDataReceiver,new IntentFilter(DetectedActivitiesIntentService.ACTIVITY_DETECTED_ACTION));
 
-		PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intentActivity,
-			PendingIntent.FLAG_UPDATE_CURRENT);
-
-		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
-			.requestActivityTransitionUpdates(request, pendingIntent);
-
-		activityPendingIntent = PendingIntent.getActivity(getApplicationContext(),
-			100, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
-			.requestActivityTransitionUpdates(request, activityPendingIntent);
-
-		task.addOnSuccessListener(
-			new OnSuccessListener<Void>() {
-				@Override
-				public void onSuccess(Void result) {
-					myPendingIntent.cancel();
-				}
-			}
-		);
-
-		task.addOnFailureListener(
-			new OnFailureListener() {
-				@Override
-				public void onFailure(Exception e) {
-					Log.e("MYCOMPONENT", e.getMessage());
-				}
-			}
-		);*/
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
@@ -369,6 +311,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	{
 	}
 
+	/*
 	private void collectActivity()
 	{
 		if (activityDection != null) {
@@ -379,6 +322,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			}
 		}
 	}
+	 */
 
 	public synchronized void flush(boolean force)
 	{
@@ -430,6 +374,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
 			&& ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
 			return;
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED
+			&& ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED)
+			return;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
 			locationManager.getCurrentLocation(LocationManager.GPS_PROVIDER, null, getMainExecutor(), this::onLocationChanged);
 		else
@@ -453,7 +400,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	public synchronized void periodicCollection()
 	{
 		collectCounters();
-		collectActivity();
+		/*collectActivity();*/
 		flush();
 		scan();
 		if (!mWakeLock.isHeld())
@@ -474,22 +421,24 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			getApplicationContext().unregisterReceiver(wiFiAPCounter);
 		if (bltCounter != null)
 			getApplicationContext().unregisterReceiver(bltCounter);
-/*
-		Task<Void> task = ActivityRecognition.getClient(getApplicationContext())
-			.removeActivityTransitionUpdates(activityPendingIntent);
-		task.addOnSuccessListener(
-			result -> activityPendingIntent.cancel()
-		);
-		task.addOnFailureListener(
-			e -> Log.e(TAG, e.getMessage())
-		);
-*/
+
 		this.mActivityRecognitionClient.removeActivityTransitionUpdates(getActivityDetectionPendingIntent());
+		unregisterReceiver(activityDataReceiver);
+
 		SensorData data = new SensorData("MONITORING", 0);
 		collectedData.add(data);
 		flush(true);
 		super.onDestroy();
 	}
 
-
+	private final BroadcastReceiver activityDataReceiver = new BroadcastReceiver()
+	{
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			SensorData activityData = intent.getParcelableExtra("data");
+			collectedData.add(activityData);
+			sendSensorDataToActivity(activityData);
+		}
+	};
 }

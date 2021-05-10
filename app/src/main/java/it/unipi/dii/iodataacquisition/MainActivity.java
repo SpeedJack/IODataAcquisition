@@ -10,12 +10,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
 import android.hardware.Sensor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -38,9 +38,11 @@ import java.util.Date;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
 
+import static com.google.android.gms.location.DetectedActivity.*;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener
 {
-	private static final int REQUEST_ENABLE_BT = 0xDEADBEEF;
+	private static final int REQUEST_ENABLE_BT = 0xBEEF;
 
 	private Intent serviceIntent;
 
@@ -65,11 +67,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				valueTextView = findViewById(R.id.wifi);
 			} else if (data.getSensorName().equals("BLUETOOTH_DEVICES")) {
 				valueTextView = findViewById(R.id.blt);
+			} else if(data.getSensorName().equals("DETECTED_ACTIVITY")){
+				valueTextView = findViewById(R.id.activity);
 			}
 
 			if (valueTextView != null) {
-				DecimalFormat df = new DecimalFormat("#.##");
-				valueTextView.setText(df.format(data.getValue()));
+				if(data.getSensorName().equals("DETECTED_ACTIVITY")) {
+					valueTextView.setText(ActivityToString((int) data.getValue()));
+				}else {
+					DecimalFormat df = new DecimalFormat("#.##");
+					valueTextView.setText(df.format(data.getValue()));
+				}
 			}
 			if (timeTextView != null)
 				timeTextView.setText(getDate(data.getTimestamp()));
@@ -253,7 +261,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
 			checkPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION,
 				ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE);
-
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+			checkPermission(Manifest.permission.ACTIVITY_RECOGNITION,ACTIVITY_RECOGNITION_PERMISSION_CODE);
+		}
 		BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		if (bluetoothAdapter == null)
 			Log.e(TAG, "startMonitoring: Device doesn't support bluetooth.");
@@ -323,23 +333,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	public void onWindowFocusChanged(boolean hasFocus)
 	{
 		super.onWindowFocusChanged(hasFocus);
-		adaptRadioButtonsToScreen();
+		RadioButton radioButtonOutdoor = findViewById(R.id.outdoorButton);
+		int textSize = getTextSizeRadioButtons(10, 150);
+		radioButtonOutdoor.setTextSize(textSize);
+		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(textSize);
 	}
 
-	public void adaptRadioButtonsToScreen()
+	public int getTextSizeRadioButtons(float textSize, int width)
 	{
-		RadioButton radioButtonOutdoor = findViewById(R.id.outdoorButton);
-		int widthDP = radioButtonOutdoor.getMeasuredWidth();
-		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %d DP", widthDP));
-		int widthPX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthDP, getApplicationContext().getResources().getDisplayMetrics());
-		// 2 is added in order to have some margin
-		int stringLength = radioButtonOutdoor.getText().length() + 2;
-		int letterPX = Math.floorDiv(widthPX , stringLength);
-		float letterSP = letterPX / getResources().getDisplayMetrics().scaledDensity;
-		Log.i(TAG, String.format("adaptRadioButtonsToScreen: %s", letterSP));
-		radioButtonOutdoor.setTextSize(TypedValue.COMPLEX_UNIT_DIP,widthDP/stringLength);
-		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(TypedValue.COMPLEX_UNIT_DIP,widthDP/stringLength);
+		Paint paint = new Paint();
+		paint.setTextSize(textSize);
+		String text = " Outdoor ";
+		if ( paint.measureText(text,0,text.length()) < width){
+			return getTextSizeRadioButtons(textSize + 5, width);
+		}else{
+			return (int) (textSize - 5);
+		}
 	}
+
 	private boolean isServiceRunning()
 	{
 		ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -347,5 +358,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			if (SensorMonitoringService.class.getName().equals(service.service.getClassName()))
 				return true;
 		return false;
+	}
+
+	private String ActivityToString(int activityType){
+		switch (activityType){
+			case  IN_VEHICLE:
+				return "In vehicle";
+			case ON_BICYCLE:
+				return "On bicycle";
+			case ON_FOOT:
+				return "On foot";
+			case  RUNNING:
+				return "Running";
+			case STILL:
+				return "Still";
+			case  TILTING:
+				return  "Tilting";
+			case WALKING:
+				return "Walking";
+			default:
+				return "Unknown";
+		}
 	}
 }
