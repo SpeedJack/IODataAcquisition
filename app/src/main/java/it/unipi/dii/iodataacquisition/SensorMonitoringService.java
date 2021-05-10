@@ -19,7 +19,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.Criteria;
 import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
@@ -62,7 +61,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private WifiManager wifiManager;
 	private BluetoothAdapter bluetoothAdapter;
 	private LocationManager locationManager;
-	private final ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<SensorData>();
+	private final ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<>();
 	private Handler periodicHandler;
 	private Runnable periodicRunnable;
 	private long lastLightTimestamp = -1;

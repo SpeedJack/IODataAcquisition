@@ -15,7 +15,6 @@ import android.hardware.Sensor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				return;
 			TextView valueTextView = null;
 			TextView timeTextView = null;
-			TextView accuracyTextView = null;
 			if (data.getSensorType() == Sensor.TYPE_LIGHT) {
 				valueTextView = findViewById(R.id.light);
 				timeTextView = findViewById(R.id.timestamp_L);
@@ -92,8 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			}
 			if (timeTextView != null)
 				timeTextView.setText(getDate(data.getTimestamp()));
-			if (accuracyTextView != null)
-				accuracyTextView.setText(data.getAccuracy());
 		}
 	};
 
@@ -236,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		toggleButton.setChecked(enabled);
 		Button shareButton = findViewById(R.id.shareButton);
 		shareButton.setEnabled(!enabled);
+		Button deleteButton = findViewById(R.id.deleteButton);
+		deleteButton.setEnabled(!enabled);
 	}
 
 	private void setMonitoringEnabled()
@@ -337,11 +335,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		intentShareFile.setDataAndType(fileUri, "text/csv");
 		intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 		intentShareFile.putExtra(Intent.EXTRA_STREAM, fileUri);
-
 		intentShareFile.putExtra(Intent.EXTRA_SUBJECT, "Log File");
 		intentShareFile.putExtra(Intent.EXTRA_TEXT, "IODataAcquisition Log File");
-
 		startActivity(Intent.createChooser(intentShareFile, "Share Log"));
+	}
+
+	private void deleteLog()
+	{
+		String filePath = getFilesDir() + File.separator + "collected-data.csv";
+		File logFile = new File(filePath);
+		if (logFile.exists() && logFile.delete()) {
+			((Button) findViewById(R.id.deleteButton)).setEnabled(false);
+			((Button) findViewById(R.id.shareButton)).setEnabled(false);
+		}
 	}
 
 	@Override
@@ -351,6 +357,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			toggleMonitoring();
 		else if (v.getId() == R.id.shareButton)
 			shareLog();
+		else if (v.getId() == R.id.deleteButton)
+			deleteLog();
 	}
 
 	@Override

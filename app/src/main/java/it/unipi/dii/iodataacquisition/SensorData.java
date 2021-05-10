@@ -1,20 +1,19 @@
 package it.unipi.dii.iodataacquisition;
 
+import android.annotation.SuppressLint;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 
-import com.google.android.gms.location.ActivityTransitionEvent;
-
 public class SensorData implements Parcelable
 {
-	private String sensorName;
-	private int sensorType;
-	private long timestamp;
-	private float value;
-	private Integer accuracy;
+	private final String sensorName;
+	private final int sensorType;
+	private final long timestamp;
+	private final float value;
+	private final Integer accuracy;
 
 	public static final Parcelable.Creator<SensorData> CREATOR
 		= new Parcelable.Creator<SensorData>() {
@@ -58,11 +57,6 @@ public class SensorData implements Parcelable
 		this(sensor.getName(), sensor.getType(), timestamp, value, accuracy);
 	}
 
-	public SensorData(Sensor sensor, long timestamp, float value)
-	{
-		this(sensor, timestamp, value, null);
-	}
-
 	public SensorData(SensorEvent event)
 	{
 		this(event.sensor,
@@ -70,13 +64,7 @@ public class SensorData implements Parcelable
 			event.values[0], event.accuracy);
 	}
 
-	public SensorData(ActivityTransitionEvent event)
-	{
-		this("ACTIVITY_" + event.getActivityType(), Sensor.TYPE_ALL,
-			System.currentTimeMillis() - (SystemClock.elapsedRealtimeNanos() - event.getElapsedRealTimeNanos())/(1000*1000),
-			event.getTransitionType(), null);
-	}
-
+	@SuppressLint("ParcelClassLoader")
 	private SensorData(Parcel source)
 	{
 		this(source.readString(), source.readInt(), source.readLong(), source.readFloat(), (Integer)source.readValue(null));
@@ -100,17 +88,6 @@ public class SensorData implements Parcelable
 	public float getValue()
 	{
 		return value;
-	}
-
-	public Integer getAccuracy()
-	{
-		return accuracy;
-	}
-
-	@Override
-	public String toString()
-	{
-		return timestamp + "," + sensorType + "," + sensorName + "," + value + "," + (accuracy != null ? accuracy : "");
 	}
 
 	public String[] toStringArray()

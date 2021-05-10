@@ -7,12 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.opencsv.CSVWriter;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class BLTCounter extends BroadcastReceiver
 {
 	static final String TAG = BLTCounter.class.getName();

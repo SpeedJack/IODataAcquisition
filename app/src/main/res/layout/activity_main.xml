@@ -293,11 +293,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
                 android:onClick="onClick"
                 android:text="@string/button_text_share"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/deleteButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lastFixLabel" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:onClick="onClick"
+                android:text="@string/button_text_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/shareButton"
+                app:layout_constraintTop_toTopOf="@+id/shareButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

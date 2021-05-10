@@ -22,4 +22,5 @@
     <string name="fix_satellites_label">Fix Satellites</string>
     <string name="last_fix_label">Last Fix</string>
     <string name="button_text_share">SHARE</string>
+    <string name="button_text_delete">DELETE</string>
 </resources>
