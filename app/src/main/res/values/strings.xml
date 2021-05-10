@@ -18,4 +18,7 @@
     <string name="stop_monitoring">STOP</string>
     <string name="monitoring_service_unknown">Service Status Unknown</string>
     <string name="ActivityLabel">Activity</string>
+    <string name="in_view_satellites_label">In-View Satellites</string>
+    <string name="fix_satellites_label">Fix Satellites</string>
+    <string name="last_fix_label">Last Fix</string>
 </resources>

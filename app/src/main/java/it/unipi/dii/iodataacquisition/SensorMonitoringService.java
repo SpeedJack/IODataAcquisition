@@ -1,7 +1,7 @@
 package it.unipi.dii.iodataacquisition;
 
 import android.Manifest;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -19,6 +19,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.Criteria;
+import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -31,7 +33,6 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,9 +45,6 @@ import com.opencsv.CSVWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class SensorMonitoringService extends Service implements SensorEventListener, LocationListener
@@ -57,6 +55,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private static final long WIFI_BT_COLLECT_INTERVAL = 60;
 	private static final long FLUSH_INTERVAL = 60;
 	private static final long WAKELOCK_TIMEOUT = 120 * 60 * 1000L;
+	private static final long GPS_UPDATE_INTERVAL = 30 * 1000L;
+	private static final long ACTIVITY_COLLECTION_INTERVAL = 30 * 1000;
 
 	private SensorManager sensorManager;
 	private WifiManager wifiManager;
@@ -75,23 +75,15 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private WiFiAPCounter wiFiAPCounter;
 	private BLTCounter bltCounter;
 	private PowerManager.WakeLock mWakeLock;
-
+	private GnssStatus.Callback gnssStatusCallback;
+	private int lastSatCount = -1;
+	private int lastFixCount = -1;
 
 	private ActivityRecognitionClient mActivityRecognitionClient;
-	static final long DETECTION_INTERVAL_IN_MILLISECONDS = 30 * 1000;
 
 	@Override
 	public void onLocationChanged(@NonNull Location location)
 	{
-		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-			return;
-		/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-			locationManager.getGpsStatus(null);
-		else
-			locationManager.getGn*/
-		SensorData data = new SensorData("GPS_FIX_SATELLITES", 0);
-		collectedData.add(data);
-		sendSensorDataToActivity(data);
 	}
 
 	@Override
@@ -146,9 +138,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-
 		mActivityRecognitionClient = new ActivityRecognitionClient(getApplicationContext());
-
 
 		periodicHandler = new Handler(Looper.getMainLooper());
 		periodicRunnable = new Runnable()
@@ -184,12 +174,63 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		intentFilter_BLT.addAction(BluetoothDevice.ACTION_FOUND);
 		getApplicationContext().registerReceiver(bltCounter, intentFilter_BLT);
 
-		locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			Log.e(TAG, "ACCESS_FINE_LOCATION not granted. Can not get GPS status.");
+		} else {
+			locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+			gnssStatusCallback = new GnssStatus.Callback()
+			{
+				@Override
+				public void onStarted()
+				{
+				}
+
+				@Override
+				public void onStopped()
+				{
+				}
+
+				@SuppressLint("MissingPermission")
+				@Override
+				public void onFirstFix(int ttffMillis)
+				{
+					SensorData data = new SensorData("GPS_FIX", 1);
+					collectedData.add(data);
+					sendSensorDataToActivity(data);
+				}
+
+				@Override
+				public void onSatelliteStatusChanged(GnssStatus status)
+				{
+					int satCount = status.getSatelliteCount();
+					if (satCount != lastSatCount) {
+						SensorData data = new SensorData("GPS_SATELLITES", satCount);
+						collectedData.add(data);
+						sendSensorDataToActivity(data);
+					}
+					lastSatCount = satCount;
+
+					//FIXME: not working (usedInFix returns always false)
+					int fixCount = 0;
+					for (int i = 0; i < satCount; i++)
+						if (status.usedInFix(i))
+							fixCount++;
+					if (fixCount != lastFixCount) {
+						SensorData data = new SensorData("GPS_FIX_SATELLITES", fixCount);
+						collectedData.add(data);
+						sendSensorDataToActivity(data);
+					}
+					lastFixCount = fixCount;
+				}
+			};
+			locationManager.registerGnssStatusCallback(gnssStatusCallback, new Handler(Looper.getMainLooper()));
+			locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				GPS_UPDATE_INTERVAL, 0, this);
+		}
 
 		Task<Void> task = mActivityRecognitionClient.requestActivityUpdates(
-			DETECTION_INTERVAL_IN_MILLISECONDS,
+			ACTIVITY_COLLECTION_INTERVAL,
 			getActivityDetectionPendingIntent());
-
 		task.addOnSuccessListener(result -> Toast.makeText(getApplicationContext(),
 			"Activity Detection Success",
 			Toast.LENGTH_SHORT)
@@ -207,7 +248,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		// This receiver will receive the updates about the activity performed by the user
 		registerReceiver(activityDataReceiver,new IntentFilter(DetectedActivitiesIntentService.ACTIVITY_DETECTED_ACTION));
 
-
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 		mWakeLock.acquire(WAKELOCK_TIMEOUT);
@@ -221,7 +261,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	/**
 	 * Gets a PendingIntent to be sent for each activity detection.
 	 */
-	private PendingIntent getActivityDetectionPendingIntent() {
+	private PendingIntent getActivityDetectionPendingIntent()
+	{
 		Intent intent = new Intent(getApplicationContext(), DetectedActivitiesIntentService.class);
 
 		// We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
@@ -311,19 +352,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	{
 	}
 
-	/*
-	private void collectActivity()
-	{
-		if (activityDection != null) {
-			List<SensorData> sensorData = this.activityDection.flush();
-			for (SensorData data : sensorData) {
-				this.collectedData.add(data);
-				sendSensorDataToActivity(data);
-			}
-		}
-	}
-	 */
-
 	public synchronized void flush(boolean force)
 	{
 		if (!force && System.currentTimeMillis() - lastFlush < FLUSH_INTERVAL * 1000)
@@ -400,7 +428,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	public synchronized void periodicCollection()
 	{
 		collectCounters();
-		/*collectActivity();*/
 		flush();
 		scan();
 		if (!mWakeLock.isHeld())
@@ -421,6 +448,10 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			getApplicationContext().unregisterReceiver(wiFiAPCounter);
 		if (bltCounter != null)
 			getApplicationContext().unregisterReceiver(bltCounter);
+		if (locationManager != null) {
+			locationManager.removeUpdates(this);
+			locationManager.unregisterGnssStatusCallback(gnssStatusCallback);
+		}
 
 		this.mActivityRecognitionClient.removeActivityTransitionUpdates(getActivityDetectionPendingIntent());
 		unregisterReceiver(activityDataReceiver);

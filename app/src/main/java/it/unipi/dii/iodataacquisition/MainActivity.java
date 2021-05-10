@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
 
@@ -67,14 +68,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				valueTextView = findViewById(R.id.wifi);
 			} else if (data.getSensorName().equals("BLUETOOTH_DEVICES")) {
 				valueTextView = findViewById(R.id.blt);
-			} else if(data.getSensorName().equals("DETECTED_ACTIVITY")){
+			} else if (data.getSensorName().equals("DETECTED_ACTIVITY")) {
 				valueTextView = findViewById(R.id.activity);
+			} else if (data.getSensorName().equals("GPS_SATELLITES")) {
+				valueTextView = findViewById(R.id.satellites);
+			} else if (data.getSensorName().equals("GPS_FIX_SATELLITES")) {
+				valueTextView = findViewById(R.id.fixSatellites);
+			} else if (data.getSensorName().equals("GPS_FIX")) {
+				timeTextView = findViewById(R.id.lastFix);
 			}
 
 			if (valueTextView != null) {
-				if(data.getSensorName().equals("DETECTED_ACTIVITY")) {
+				if (data.getSensorName().equals("DETECTED_ACTIVITY")) {
 					valueTextView.setText(ActivityToString((int) data.getValue()));
-				}else {
+				} else {
 					DecimalFormat df = new DecimalFormat("#.##");
 					valueTextView.setText(df.format(data.getValue()));
 				}
@@ -143,8 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private String getDate(long time)
 	{
-		//FIXME: warning
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
 		return formatter.format(new Date(time));
 	}
 
@@ -203,10 +209,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		super.onResume();
 		boolean serviceRunning = isServiceRunning();
 		setMonitoringEnabled(serviceRunning);
+		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
 		if (serviceRunning)
 			return;
-		//FIXME: receiver does not work after resume
-		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
 		if (serviceIntent == null)
 			serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
 		if (boundService == null && !bindService(serviceIntent, serviceConnection, 0)) {
