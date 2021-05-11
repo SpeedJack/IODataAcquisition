@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.hardware.Sensor;
@@ -19,7 +18,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		public void onServiceConnected(ComponentName name, IBinder service)
 		{
 			boundService = ((SensorMonitoringService.ServiceBinder)service).getService();
-			SegmentedGroup ioSwitch = (SegmentedGroup)findViewById(R.id.ioSwitch);
+			SegmentedGroup ioSwitch = findViewById(R.id.ioSwitch);
 			ioSwitch.check(boundService.isIndoor() ? R.id.indoorButton : R.id.outdoorButton);
 		}
 
@@ -174,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		SegmentedGroup ioSwitch = (SegmentedGroup)findViewById(R.id.ioSwitch);
+		SegmentedGroup ioSwitch = findViewById(R.id.ioSwitch);
 		ioSwitch.check(R.id.outdoorButton);
 		boolean serviceRunning = isServiceRunning();
 		setMonitoringEnabled(serviceRunning);
@@ -348,8 +346,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		String filePath = getFilesDir() + File.separator + "collected-data.csv";
 		File logFile = new File(filePath);
 		if (logFile.exists() && logFile.delete()) {
-			((Button) findViewById(R.id.deleteButton)).setEnabled(false);
-			((Button) findViewById(R.id.shareButton)).setEnabled(false);
+			findViewById(R.id.deleteButton).setEnabled(false);
+			findViewById(R.id.shareButton).setEnabled(false);
 		}
 	}
 
