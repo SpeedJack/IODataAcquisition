@@ -132,7 +132,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
-		indoor = intent.getBooleanExtra("Indoor", false);
+		boolean isIndoor = intent.getBooleanExtra("Indoor", false);
+		indoor = !isIndoor;
+		setIndoor(isIndoor);
 		sensorManager = (SensorManager) getApplicationContext().getSystemService(SENSOR_SERVICE);
 		wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
