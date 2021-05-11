@@ -198,6 +198,8 @@
                     android:layout_height="wrap_content"
                     android:width="@dimen/io_button_width"
                     android:maxWidth="150dp"
+                    android:maxLines="1"
+                    android:minLines="1"
                     android:text="@string/outdoor"
                     android:textSize="30sp" />
 
@@ -207,6 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:width="@dimen/io_button_width"
+                    android:maxLines="1"
                     android:text="@string/indoor"
                     android:textSize="30sp"
                     tools:layout_editor_absoluteX="148dp" />

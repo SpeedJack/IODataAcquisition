@@ -10,13 +10,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.hardware.Sensor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -383,7 +386,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		Paint paint = new Paint();
 		paint.setTextSize(textSize);
 		String text = " Outdoor ";
-		if ( paint.measureText(text,0,text.length()) < width){
+		Rect bounds = new Rect();
+		paint.getTextBounds(text, 0, text.length(), bounds);
+		Log.i(TAG, "getTextSizeRadioButtons: " + bounds.width());
+		if ( bounds.width() * getApplicationContext().getResources().getDisplayMetrics().density < width){
 			return getTextSizeRadioButtons(textSize + 5, width);
 		}else{
 			return (int) (textSize - 5);

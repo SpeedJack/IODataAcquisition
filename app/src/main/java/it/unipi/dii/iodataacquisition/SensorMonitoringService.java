@@ -211,9 +211,11 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 					//FIXME: not working (usedInFix returns always false)
 					int fixCount = 0;
-					for (int i = 0; i < satCount; i++)
+					for (int i = 0; i < satCount; i++) {
+						Log.i(TAG, "onSatelliteStatusChanged: USED IN FIX -> " + status.usedInFix(i));
 						if (status.usedInFix(i))
 							fixCount++;
+					}
 					if (fixCount != lastFixCount) {
 						SensorData data = new SensorData("GPS_FIX_SATELLITES", fixCount);
 						collectedData.add(data);
