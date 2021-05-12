@@ -199,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (boundService != null)
 			try {
 				unbindService(serviceConnection);
+				boundService = null;
 			} catch (Exception e) {
 				boundService = null;
 			}
