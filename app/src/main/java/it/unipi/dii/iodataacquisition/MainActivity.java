@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		boolean serviceRunning = isServiceRunning();
 		setMonitoringEnabled(serviceRunning);
 		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
-		if (serviceRunning)
+		if (!serviceRunning)
 			return;
 		if (serviceIntent == null)
 			serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
