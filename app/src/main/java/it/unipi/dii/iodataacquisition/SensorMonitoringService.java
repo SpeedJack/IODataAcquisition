@@ -32,7 +32,6 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -64,8 +63,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private final ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<>();
 	private Handler periodicHandler;
 	private Runnable periodicRunnable;
-	private long lastLightTimestamp = -1;
-	private long lastProxTimestamp = -1;
 	private long lastScan = -1;
 	private long lastWiFiBTCheck = -1;
 	private long lastFlush = -1;
@@ -120,7 +117,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		lastScan = System.currentTimeMillis();
 		if (!wifiManager.isWifiEnabled())
 			Log.w(TAG, "WiFi is not enabled.");
-		else if (!wifiManager.startScan()) // FIXME: deprecated
+		else if (!wifiManager.startScan())
 			Log.e(TAG, "Failed to start WiFi scan.");
 		if (!bluetoothAdapter.isEnabled())
 			Log.w(TAG, "Bluetooth is not enabled.");
@@ -179,8 +176,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			Log.e(TAG, "ACCESS_FINE_LOCATION not granted. Can not get GPS status.");
 		} else {
 			locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-			gnssStatusCallback = new GnssStatus.Callback()
-			{
+			gnssStatusCallback = new GnssStatus.Callback() {
 				@Override
 				public void onStarted()
 				{
@@ -211,13 +207,10 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 					}
 					lastSatCount = satCount;
 
-					//FIXME: not working (usedInFix returns always false)
 					int fixCount = 0;
-					for (int i = 0; i < satCount; i++) {
-						Log.i(TAG, "onSatelliteStatusChanged: USED IN FIX -> " + status.usedInFix(i));
+					for (int i = 0; i < satCount; i++)
 						if (status.usedInFix(i))
 							fixCount++;
-					}
 					if (fixCount != lastFixCount) {
 						SensorData data = new SensorData("GPS_FIX_SATELLITES", fixCount);
 						collectedData.add(data);
@@ -234,21 +227,10 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		Task<Void> task = mActivityRecognitionClient.requestActivityUpdates(
 			ACTIVITY_COLLECTION_INTERVAL,
 			getActivityDetectionPendingIntent());
-		task.addOnSuccessListener(result -> Toast.makeText(getApplicationContext(),
-			"Activity Detection Success",
-			Toast.LENGTH_SHORT)
-			.show());
+		task.addOnSuccessListener(result -> {});
 
-		task.addOnFailureListener(e -> {
-			Log.i(TAG, "onFailure: " + e.toString()  );
-			e.printStackTrace();
-			Toast.makeText(getApplicationContext(),
-				"Activity Detection Failure",
-				Toast.LENGTH_SHORT)
-				.show();
-		});
+		task.addOnFailureListener(e -> Log.e(TAG, "Activity detection failure: " + e.toString()));
 
-		// This receiver will receive the updates about the activity performed by the user
 		registerReceiver(activityDataReceiver,new IntentFilter(DetectedActivitiesIntentService.ACTIVITY_DETECTED_ACTION));
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -267,9 +249,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private PendingIntent getActivityDetectionPendingIntent()
 	{
 		Intent intent = new Intent(getApplicationContext(), DetectedActivitiesIntentService.class);
-
-		// We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
-		// requestActivityUpdates() and removeActivityUpdates().
 		return PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	}
 
@@ -277,7 +256,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	public void onCreate()
 	{
 		super.onCreate();
-		Log.i(TAG, "onCreate: The service has been created.");
+		Log.d(TAG, "onCreate: The service has been created.");
 		Notification notification = createNotification();
 		startForeground(1, notification);
 	}
@@ -286,8 +265,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	{
 		String notificationChannelId = "IO DATA ACQUISITION NOTIFICATION CHANNEL";
 
-		// depending on the Android API that we're dealing with we will have
-		// to use a specific method to create the notification
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 			NotificationChannel notificationChannel = new NotificationChannel(notificationChannelId, "IO Data Acquisition", NotificationManager.IMPORTANCE_HIGH);
@@ -325,19 +302,10 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	@Override
 	public void onSensorChanged(SensorEvent event)
 	{
-		if (event == null || event.values.length == 0)
+		if (event == null || event.values.length == 0
+			|| (event.sensor.getType() != Sensor.TYPE_LIGHT
+			&& event.sensor.getType() != Sensor.TYPE_PROXIMITY))
 			return;
-		if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
-			if (event.timestamp - lastLightTimestamp < 1000 * 1000 * 1000)
-				return;
-			lastLightTimestamp = event.timestamp;
-		} else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-			if (event.timestamp - lastProxTimestamp < 1000 * 1000 * 1000)
-				return;
-			lastProxTimestamp = event.timestamp;
-		} else {
-			return;
-		}
 		SensorData data = new SensorData(event);
 		collectedData.add(data);
 		sendSensorDataToActivity(data);

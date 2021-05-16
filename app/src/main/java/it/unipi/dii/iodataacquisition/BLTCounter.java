@@ -18,8 +18,8 @@ public class BLTCounter extends BroadcastReceiver
 	public void onReceive(Context context, Intent intent)
 	{
 		String action = intent.getAction();
-		if (BluetoothDevice.ACTION_FOUND.equals(action)) { // new device discovered
-			Log.d(TAG, "onReceive: A new BLT device discovered");
+		if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+			Log.d(TAG, "New bluetooth device discovered.");
 			tmpBLTNumber += 1;
 		} else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
 			lastBLTNumber = tmpBLTNumber;

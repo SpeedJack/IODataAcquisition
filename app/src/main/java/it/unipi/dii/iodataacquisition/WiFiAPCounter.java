@@ -20,7 +20,6 @@ public class WiFiAPCounter extends BroadcastReceiver
 	{
 		boolean success = intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false);
 		if (success) {
-			/*Accessing the results of the scanning*/
 			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 			List<ScanResult> results = wifiManager.getScanResults();
 			lastWiFiAPNumber = results.size();

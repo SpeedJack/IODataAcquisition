@@ -81,14 +81,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				timeTextView = findViewById(R.id.lastFix);
 			}
 
-			if (valueTextView != null) {
+			if (valueTextView != null)
 				if (data.getSensorName().equals("DETECTED_ACTIVITY")) {
 					valueTextView.setText(ActivityToString((int) data.getValue()));
 				} else {
 					DecimalFormat df = new DecimalFormat("#.##");
 					valueTextView.setText(df.format(data.getValue()));
 				}
-			}
 			if (timeTextView != null)
 				timeTextView.setText(getDate(data.getTimestamp()));
 		}
@@ -199,10 +198,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (boundService != null)
 			try {
 				unbindService(serviceConnection);
-				boundService = null;
-			} catch (Exception e) {
-				boundService = null;
+			} catch (Exception ignored) {
 			}
+		boundService = null;
 	}
 
 	@Override
@@ -271,13 +269,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
 			checkPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION,
 				ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE);
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
 			checkPermission(Manifest.permission.ACTIVITY_RECOGNITION,ACTIVITY_RECOGNITION_PERMISSION_CODE);
-		}
+
 		BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		if (bluetoothAdapter == null)
+		if (bluetoothAdapter == null) {
 			Log.e(TAG, "startMonitoring: Device doesn't support bluetooth.");
-		else if (!bluetoothAdapter.isEnabled()) {
+		} else if (!bluetoothAdapter.isEnabled()) {
 			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 		}
@@ -388,11 +386,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		Rect bounds = new Rect();
 		paint.getTextBounds(text, 0, text.length(), bounds);
 		Log.i(TAG, "getTextSizeRadioButtons: " + bounds.width());
-		if ( bounds.width() * getApplicationContext().getResources().getDisplayMetrics().density < width){
+		if (bounds.width() * getApplicationContext().getResources().getDisplayMetrics().density < width)
 			return getTextSizeRadioButtons(textSize + 5, width);
-		}else{
+		else
 			return (int) (textSize - 5);
-		}
 	}
 
 	private boolean isServiceRunning()
