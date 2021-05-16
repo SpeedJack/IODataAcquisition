@@ -6,9 +6,12 @@ import android.hardware.SensorEvent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.util.Log;
 
 public class SensorData implements Parcelable
 {
+	private static final String TAG = SensorData.class.getName();
+
 	private final String sensorName;
 	private final int sensorType;
 	private final long timestamp;
@@ -35,6 +38,11 @@ public class SensorData implements Parcelable
 		this.timestamp = timestamp;
 		this.value = value;
 		this.accuracy = accuracy;
+		Log.d(TAG, "New SensorData {sensorName: " + sensorName +
+			", sensorType: " + sensorType +
+			", timestamp: " + timestamp +
+			", value: " + value +
+			", accuracy: " + accuracy + "}.");
 	}
 
 	public SensorData(String sensorName, long timestamp, float value, Integer accuracy)
