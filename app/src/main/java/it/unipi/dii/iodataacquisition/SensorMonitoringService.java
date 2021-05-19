@@ -424,7 +424,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			locationManager.unregisterGnssStatusCallback(gnssStatusCallback);
 		}
 
-		this.mActivityRecognitionClient.removeActivityTransitionUpdates(getActivityDetectionPendingIntent());
+		this.mActivityRecognitionClient.removeActivityUpdates(getActivityDetectionPendingIntent());
 		unregisterReceiver(activityDataReceiver);
 
 		SensorData data = new SensorData("MONITORING", 0);
