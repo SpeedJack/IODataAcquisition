@@ -1,0 +1,1680 @@
+timestamp,sensor_type,sensor_name,value,accuracy
+1621450587546,-1,INDOOR,1.0,
+1621450587605,-1,MONITORING,1.0,
+1621450587316,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621449973854,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450587690,-1,DETECTED_ACTIVITY,3.0,
+1621450588017,5,TMD3725_Light Ambient Light Sensor Non-wakeup,70.0,3
+1621450588133,5,TMD3725_Light Ambient Light Sensor Non-wakeup,76.0,3
+1621450588600,5,TMD3725_Light Ambient Light Sensor Non-wakeup,69.0,3
+1621450588885,-1,GPS_SATELLITES,23.0,
+1621450588886,-1,GPS_FIX_SATELLITES,0.0,
+1621450590120,5,TMD3725_Light Ambient Light Sensor Non-wakeup,76.0,3
+1621450590646,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621450590939,5,TMD3725_Light Ambient Light Sensor Non-wakeup,62.0,3
+1621450590997,5,TMD3725_Light Ambient Light Sensor Non-wakeup,57.0,3
+1621450591055,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621450591289,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450591347,5,TMD3725_Light Ambient Light Sensor Non-wakeup,56.0,3
+1621450591407,5,TMD3725_Light Ambient Light Sensor Non-wakeup,69.0,3
+1621450591464,5,TMD3725_Light Ambient Light Sensor Non-wakeup,74.0,3
+1621450591883,-1,GPS_SATELLITES,39.0,
+1621450594737,5,TMD3725_Light Ambient Light Sensor Non-wakeup,70.0,3
+1621450594971,5,TMD3725_Light Ambient Light Sensor Non-wakeup,64.0,3
+1621450596257,5,TMD3725_Light Ambient Light Sensor Non-wakeup,71.0,3
+1621450597075,5,TMD3725_Light Ambient Light Sensor Non-wakeup,64.0,3
+1621450597426,5,TMD3725_Light Ambient Light Sensor Non-wakeup,59.0,3
+1621450597492,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450597542,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450597601,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450597659,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621450597717,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621450597834,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621450597893,5,TMD3725_Light Ambient Light Sensor Non-wakeup,56.0,3
+1621450597959,-1,GPS_FIX,1.0,
+1621450597952,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450598010,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621450598126,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450598186,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450598360,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450598419,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450598478,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450598548,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450598606,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621450599074,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450604675,-1,DETECTED_ACTIVITY,3.0,
+1621450605047,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621450605106,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621450605280,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621450605339,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450606040,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450606099,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450606274,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450606333,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450606625,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450606684,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450606742,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621450606800,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450607384,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621450607443,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450607677,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621450607735,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450609664,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450609723,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450609781,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450610015,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450610073,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450610081,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450610131,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450610307,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450610365,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450610540,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450610715,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450610774,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450610891,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621450610899,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450611183,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450611710,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450611767,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450611826,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621450611884,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450612761,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621450612820,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450613170,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450613228,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450613345,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450613404,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450613521,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621450613579,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450614164,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450614222,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621450614281,5,TMD3725_Light Ambient Light Sensor Non-wakeup,54.0,3
+1621450622988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621450623047,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450634978,-1,DETECTED_ACTIVITY,3.0,
+1621450640170,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450640228,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621450640286,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450640579,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450640638,5,TMD3725_Light Ambient Light Sensor Non-wakeup,50.0,3
+1621450640696,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450640754,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450641689,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450641748,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450641806,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450642449,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450643033,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450643559,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450646715,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450646890,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621450646948,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621450647689,-1,WIFI_ACCESS_POINTS,3.0,
+1621450647694,-1,BLUETOOTH_DEVICES,0.0,
+1621450651900,-1,GPS_FIX,1.0,
+1621450665246,-1,DETECTED_ACTIVITY,3.0,
+1621450711901,-1,GPS_FIX,1.0,
+1621450729293,5,TMD3725_Light Ambient Light Sensor Non-wakeup,54.0,3
+1621450729352,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450729585,5,TMD3725_Light Ambient Light Sensor Non-wakeup,66.0,3
+1621450729935,5,TMD3725_Light Ambient Light Sensor Non-wakeup,70.0,3
+1621450730052,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621450730110,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621450730169,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450730227,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450730286,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450730345,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450730578,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450730637,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450730695,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621450730754,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450730812,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621450730870,5,TMD3725_Light Ambient Light Sensor Non-wakeup,69.0,3
+1621450730929,5,TMD3725_Light Ambient Light Sensor Non-wakeup,81.0,3
+1621450730988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,91.0,3
+1621450731163,5,TMD3725_Light Ambient Light Sensor Non-wakeup,81.0,3
+1621450731221,5,TMD3725_Light Ambient Light Sensor Non-wakeup,78.0,3
+1621450731396,5,TMD3725_Light Ambient Light Sensor Non-wakeup,74.0,3
+1621450731513,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450731572,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450731864,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450731922,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621450732098,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621450732156,5,TMD3725_Light Ambient Light Sensor Non-wakeup,78.0,3
+1621450732273,5,TMD3725_Light Ambient Light Sensor Non-wakeup,71.0,3
+1621450732507,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621450732565,5,TMD3725_Light Ambient Light Sensor Non-wakeup,60.0,3
+1621450732682,5,TMD3725_Light Ambient Light Sensor Non-wakeup,66.0,3
+1621450733033,5,TMD3725_Light Ambient Light Sensor Non-wakeup,56.0,3
+1621450733208,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450733266,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621450733441,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450733559,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450733617,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621450733675,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621450733851,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450733909,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450733917,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450734260,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450734552,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450735078,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450735086,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450735137,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450737427,-1,DETECTED_ACTIVITY,5.0,
+1621450737492,-1,DETECTED_ACTIVITY,3.0,
+1621450767746,-1,DETECTED_ACTIVITY,4.0,
+1621450768056,-1,WIFI_ACCESS_POINTS,6.0,
+1621450790900,-1,GPS_FIX,1.0,
+1621450798015,-1,DETECTED_ACTIVITY,4.0,
+1621450804777,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450804828,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450805663,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450806081,-1,DETECTED_ACTIVITY,4.0,
+1621450809627,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450810596,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450812536,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450812652,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450816101,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450816452,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450818848,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450819076,-1,INDOOR,0.0,
+1621450819076,-1,INDOOR,1.0,
+1621450819256,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450820601,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450822470,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450822529,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450822538,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450822705,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450822880,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450822957,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450823249,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450823256,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450823307,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450828132,-1,WIFI_ACCESS_POINTS,5.0,
+1621450836342,-1,DETECTED_ACTIVITY,2.0,
+1621450843891,-1,GPS_SATELLITES,38.0,
+1621450848515,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450848566,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450849340,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450849966,-1,DETECTED_ACTIVITY,4.0,
+1621450857886,-1,GPS_SATELLITES,37.0,
+1621450858883,-1,GPS_SATELLITES,38.0,
+1621450860879,-1,GPS_SATELLITES,36.0,
+1621450861087,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450861379,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450861437,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450861496,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450861563,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450861613,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450861882,-1,GPS_SATELLITES,38.0,
+1621450862915,-1,GPS_FIX,1.0,
+1621450873146,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450873803,-1,DETECTED_ACTIVITY,5.0,
+1621450873885,-1,DETECTED_ACTIVITY,4.0,
+1621450875784,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450876447,-1,INDOOR,0.0,
+1621450876836,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450876895,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450876954,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450877012,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450877246,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450877421,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450877597,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450877889,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450878305,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450878415,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450878531,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450878589,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450878649,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450878707,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450878823,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450878940,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450879116,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450879174,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450879583,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450879641,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450879700,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450880051,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450880167,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450880226,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450880343,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450880459,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450880518,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450880811,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450880927,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450881745,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450881862,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450882154,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450882213,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450882388,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450884258,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450884375,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450884434,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450884609,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450884667,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450884901,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450884960,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450885135,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450885194,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450885252,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450885369,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450885427,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450885603,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450885661,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450886195,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450886245,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450886655,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450886712,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450886721,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450886771,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450886888,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450886947,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450887121,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450887180,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450887239,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450887413,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450887472,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450887531,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450887589,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450887647,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450887764,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450888173,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450888232,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450888241,-1,WIFI_ACCESS_POINTS,0.0,
+1621450888349,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450888465,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450888816,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450888933,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450889050,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450889108,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450889284,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450889342,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450889459,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450889518,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450889809,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450889927,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450890278,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450890335,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450890394,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450890570,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450890686,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450890745,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450890803,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450890861,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450890920,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450890979,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450891037,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621450891095,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450891153,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450891212,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450891505,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450891563,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450891621,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450891893,-1,GPS_FIX,1.0,
+1621450892573,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450892690,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450892924,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450893041,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450893100,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450893217,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450893333,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450893391,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450893450,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450893567,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450893626,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450893684,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450893918,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450894268,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450894386,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450894444,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450894502,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450894561,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450894619,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450894677,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450894912,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450894970,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450895028,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450895086,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621450895145,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621450895262,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621450895495,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621450895554,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450895612,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450895905,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621450896080,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621450896198,5,TMD3725_Light Ambient Light Sensor Non-wakeup,50.0,3
+1621450896255,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621450896314,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450896373,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450896431,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450896489,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450896547,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621450896606,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450896664,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450896899,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450897249,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450897307,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450897366,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450897424,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621450897483,5,TMD3725_Light Ambient Light Sensor Non-wakeup,59.0,3
+1621450897600,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450897658,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450897716,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450897892,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450897951,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450898068,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450898126,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450898360,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450898418,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621450898476,5,TMD3725_Light Ambient Light Sensor Non-wakeup,64.0,3
+1621450898535,5,TMD3725_Light Ambient Light Sensor Non-wakeup,78.0,3
+1621450898594,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621450898651,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450898710,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450898768,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450898944,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450899061,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450899178,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450899237,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450899412,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450899587,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450899821,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450899938,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450900055,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450900172,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450900230,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450900347,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450900581,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450900814,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450900873,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450901048,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450901107,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450901340,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450901399,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450901458,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450901516,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450901632,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450901692,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450901750,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450901867,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450902042,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450902101,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450902159,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450902275,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450902393,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450902509,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450902743,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450902860,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450902918,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450902977,5,TMD3725_Light Ambient Light Sensor Non-wakeup,57.0,3
+1621450903152,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621450903211,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621450903269,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450903503,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450903556,-1,DETECTED_ACTIVITY,2.0,
+1621450903561,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450903620,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450903679,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450903796,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450903912,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450903971,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450904146,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450904380,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450904672,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450904964,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450907770,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450907829,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450908237,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450908295,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450908529,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450908588,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450908646,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621450908704,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450908880,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450908939,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450909055,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450909114,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450909172,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450909231,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450909290,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450909348,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450909406,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450909465,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450909523,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450909582,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450909640,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450909698,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450909757,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450909815,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621450909874,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621450909882,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450909932,5,TMD3725_Light Ambient Light Sensor Non-wakeup,76.0,3
+1621450909990,5,TMD3725_Light Ambient Light Sensor Non-wakeup,136.0,3
+1621450910049,5,TMD3725_Light Ambient Light Sensor Non-wakeup,193.0,3
+1621450910107,5,TMD3725_Light Ambient Light Sensor Non-wakeup,267.0,3
+1621450910166,5,TMD3725_Light Ambient Light Sensor Non-wakeup,408.0,3
+1621450910225,5,TMD3725_Light Ambient Light Sensor Non-wakeup,500.0,3
+1621450910283,5,TMD3725_Light Ambient Light Sensor Non-wakeup,538.0,3
+1621450910458,5,TMD3725_Light Ambient Light Sensor Non-wakeup,417.0,3
+1621450910516,5,TMD3725_Light Ambient Light Sensor Non-wakeup,78.0,3
+1621450910575,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450910633,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621450910692,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621450910750,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621450910809,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450910867,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450910925,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450910984,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450911043,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450911160,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450911218,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450911277,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450911334,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621450911393,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621450911510,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450911568,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450911627,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450911685,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450911744,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450912094,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450912153,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621450912212,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450912270,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450912328,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450912445,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621450912503,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450912562,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450912620,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450913322,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450913380,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450913439,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450913556,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450913614,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450913790,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450913906,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450913965,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450914023,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450914140,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450914315,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450914374,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450914666,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450914841,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450915601,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450915660,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450916069,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450916302,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450916362,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450916419,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450916478,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450916537,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450916653,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450916711,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450916829,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450916887,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450917004,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450917121,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450917296,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450917354,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450917413,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450917471,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450917530,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450917588,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450917647,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450917705,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450917764,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450918114,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450918173,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450918232,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450918289,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450918348,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450918407,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450918465,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450918524,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450918582,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450918758,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450919108,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450919167,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450919284,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450919342,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450919634,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450919692,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450919751,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450919809,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450919868,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450919926,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450920043,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450920160,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450920218,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450920627,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450920686,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450920803,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450920978,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450921270,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450921387,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450921504,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450921562,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450921621,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450921796,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450922030,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450922089,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450922147,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450922556,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450922614,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621450922673,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621450922907,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450922965,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450923023,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621450923257,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450923316,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450923374,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450923432,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450923725,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450923959,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450924076,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450924193,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450924251,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450924310,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621450924368,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450924485,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450924543,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450924602,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450924777,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450924835,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450924894,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450924952,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450924954,-1,DETECTED_ACTIVITY,2.0,
+1621450925069,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450925127,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621450925186,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450925244,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450925303,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450925420,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621450925478,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621450925595,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621450925654,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450925712,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621450925770,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621450925829,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450925888,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621450926472,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621450927173,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621450927232,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621450927290,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621450927349,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621450927407,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621450927465,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450927474,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450927524,5,TMD3725_Light Ambient Light Sensor Non-wakeup,5.0,3
+1621450927582,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450927699,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450927875,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450928517,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450928525,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450928576,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450941046,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450941054,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450941104,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450941162,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450941221,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450941338,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621450941396,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450941572,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450941746,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450941930,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450941981,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450942214,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450942331,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450942352,-1,DETECTED_ACTIVITY,5.0,
+1621450942404,-1,DETECTED_ACTIVITY,2.0,
+1621450942507,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450942916,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450942974,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450943976,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450944034,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450946561,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450946620,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450947741,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450948333,-1,WIFI_ACCESS_POINTS,27.0,
+1621450948422,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450950916,-1,GPS_FIX,1.0,
+1621450951762,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450951937,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450952054,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450952112,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450952463,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450952521,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450952580,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621450952638,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621450952697,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621450952813,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621450952872,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621450952931,5,TMD3725_Light Ambient Light Sensor Non-wakeup,57.0,3
+1621450952989,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621450953047,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450953223,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450953457,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450954450,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450954509,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450954567,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450954742,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450954801,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621450955035,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450955150,-1,INDOOR,1.0,
+1621450955327,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621450955502,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450957139,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450957147,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450958794,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450958860,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450958911,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450959180,-1,DETECTED_ACTIVITY,5.0,
+1621450959247,-1,DETECTED_ACTIVITY,4.0,
+1621450960021,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450960029,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450962250,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450962301,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450963797,-1,DETECTED_ACTIVITY,5.0,
+1621450963869,-1,DETECTED_ACTIVITY,4.0,
+1621450963878,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450966108,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450966216,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621450966392,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450969138,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450969206,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450971076,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450971624,-1,DETECTED_ACTIVITY,5.0,
+1621450971752,-1,DETECTED_ACTIVITY,4.0,
+1621450972489,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621450972498,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621450974777,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621450974827,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451004285,-1,DETECTED_ACTIVITY,5.0,
+1621451004352,-1,DETECTED_ACTIVITY,4.0,
+1621451008435,-1,WIFI_ACCESS_POINTS,14.0,
+1621451008437,-1,BLUETOOTH_DEVICES,3.0,
+1621451022912,-1,GPS_FIX,1.0,
+1621451030390,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451030457,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451030506,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451030741,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451030799,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451030857,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451030975,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451031325,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451032553,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451033020,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451033558,-1,DETECTED_ACTIVITY,5.0,
+1621451033609,-1,DETECTED_ACTIVITY,4.0,
+1621451033663,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451039216,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451039274,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451039859,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451040209,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451062887,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451063879,-1,DETECTED_ACTIVITY,3.0,
+1621451064535,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451064651,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451065035,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451065335,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451065445,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451066646,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451067184,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451067473,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451068129,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451068371,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451068506,-1,WIFI_ACCESS_POINTS,9.0,
+1621451068739,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451069947,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451070356,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451081110,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451081177,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451081296,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451081354,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451081479,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451082269,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451088916,-1,GPS_FIX,1.0,
+1621451095362,-1,DETECTED_ACTIVITY,3.0,
+1621451102083,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451105129,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451121621,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451124171,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451124580,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451124589,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451124698,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451124756,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451124940,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451125072,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451125240,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451125248,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451125298,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451125356,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451125415,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451125481,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451126058,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451126116,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451126304,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451126590,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451126849,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451126984,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451127394,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451127803,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451128164,-1,DETECTED_ACTIVITY,3.0,
+1621451128566,-1,WIFI_ACCESS_POINTS,5.0,
+1621451128567,-1,BLUETOOTH_DEVICES,0.0,
+1621451153576,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451155037,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451155438,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451155514,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451155633,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451156647,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451158367,-1,DETECTED_ACTIVITY,3.0,
+1621451163914,-1,GPS_FIX,1.0,
+1621451168621,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451168687,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451168824,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451169465,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451169605,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451169892,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451170882,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451171234,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451171305,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451171450,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451171521,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451171594,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451171736,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451171946,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451172017,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451172087,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451172158,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451173575,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451173646,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451176719,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451177148,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451177515,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451177860,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451177938,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451178339,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451178905,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451179684,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451179784,-1,DETECTED_ACTIVITY,3.0,
+1621451180086,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451180440,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451181568,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451182466,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451193505,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451193563,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451197910,-1,GPS_FIX,1.0,
+1621451205113,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451205135,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451205186,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451205786,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451205845,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451205975,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451206268,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451206325,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451207215,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451207799,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451209085,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451209287,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451209844,-1,DETECTED_ACTIVITY,3.0,
+1621451217191,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451217249,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451217914,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451218966,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451219075,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451219133,5,TMD3725_Light Ambient Light Sensor Non-wakeup,7.0,3
+1621451219308,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451219367,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451219426,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451219697,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451220539,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451220590,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451221937,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451223000,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451223008,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451223059,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451223365,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451223635,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451224531,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451224998,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451230543,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451230816,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451231474,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451231598,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451231965,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451232385,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451235672,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451235809,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451236024,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451236526,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451240182,-1,DETECTED_ACTIVITY,3.0,
+1621451244895,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451245596,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451246836,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451247328,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451248688,-1,WIFI_ACCESS_POINTS,6.0,
+1621451249049,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451249216,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451249274,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451249283,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451251098,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451251364,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451251432,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451253910,-1,GPS_FIX,1.0,
+1621451254355,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451254698,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451256932,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451256940,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451257420,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451258837,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451259251,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451260724,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451260926,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451261140,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451261211,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451261463,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451263267,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451263333,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451263384,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451263954,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451264240,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451264456,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451264670,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451264888,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451265019,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451265149,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451265220,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451266877,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451266899,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451267601,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451267651,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451267803,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451267854,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451267991,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451268342,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451268918,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451269340,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451269704,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451269921,-1,DETECTED_ACTIVITY,3.0,
+1621451270617,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451276071,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451276130,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451276214,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451276264,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451276607,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451279543,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451281695,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451283930,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451283988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451285212,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451287993,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451290831,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451290881,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451293355,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451293439,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451293941,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451296295,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451296362,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451296429,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451296650,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451296940,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451298357,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451298508,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451298924,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451298988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451300405,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451300508,-1,DETECTED_ACTIVITY,3.0,
+1621451300609,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451300680,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451300823,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451300903,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451301362,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451301371,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451301501,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451301729,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451305746,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451305891,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451306178,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451307476,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451308740,-1,WIFI_ACCESS_POINTS,7.0,
+1621451308967,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451312376,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451312543,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451314556,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451316614,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451318520,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451320869,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451321068,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451322015,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451322074,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451322909,-1,GPS_FIX,1.0,
+1621451324070,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451325218,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451330805,-1,DETECTED_ACTIVITY,3.0,
+1621451331483,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451332792,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451333308,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451333504,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451333755,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451333821,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451334267,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451334534,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451336769,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451337045,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451338697,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451338979,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451340044,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451342394,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451343166,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451343675,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451345530,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451345597,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451346487,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451346832,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451347550,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451347914,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451349050,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451349477,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451361157,-1,DETECTED_ACTIVITY,3.0,
+1621451361232,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451361940,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451363882,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451364326,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451364738,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451365032,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451369831,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451373000,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451377748,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451379573,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451380068,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451380189,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451387564,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451388045,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451388905,-1,GPS_FIX,1.0,
+1621451389109,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451389242,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451389372,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451389430,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451391478,-1,DETECTED_ACTIVITY,3.0,
+1621451393537,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451394029,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451400237,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451400316,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451400583,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451400654,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451400823,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451401016,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451418092,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451418501,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451419497,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451419694,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451420395,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451420980,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451421388,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451421746,-1,DETECTED_ACTIVITY,3.0,
+1621451424419,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451424766,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451426182,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451426249,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451428403,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451428854,-1,WIFI_ACCESS_POINTS,4.0,
+1621451429727,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451430144,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451430464,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451430884,-1,GPS_SATELLITES,39.0,
+1621451432519,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451432938,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451433220,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451433271,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451433634,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451433701,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451434119,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451434260,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451434379,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451434728,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451435208,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451435629,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451435824,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451436135,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451436711,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451436719,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451437194,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451437265,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451437606,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621451437817,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451438299,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451438368,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451438778,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451438839,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451440018,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451440282,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451440460,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451440481,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451443228,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451449078,-1,DETECTED_ACTIVITY,3.0,
+1621451451116,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451451167,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451452813,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451453353,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451462172,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451469906,-1,GPS_FIX,1.0,
+1621451487896,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451488609,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451488910,-1,WIFI_ACCESS_POINTS,5.0,
+1621451489322,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451490159,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451490218,-1,DETECTED_ACTIVITY,3.0,
+1621451491223,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451491632,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451491651,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451491701,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451492256,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451492656,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451492842,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451493100,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451493754,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451494090,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451496964,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451497441,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451498911,-1,GPS_FIX,1.0,
+1621451501134,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451501266,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451502038,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451506128,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451506625,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451513712,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451514198,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451514388,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451514797,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451514927,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451515352,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451515458,-1,DETECTED_ACTIVITY,3.0,
+1621451515703,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451515820,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451516165,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451522724,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451522841,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451522990,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621451523040,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451524113,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621451524338,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451525799,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451525858,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451526057,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451527707,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451528744,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451529632,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451529690,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451534140,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451536168,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451536239,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451536506,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451536697,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451536755,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451542317,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451542375,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451545624,-1,DETECTED_ACTIVITY,5.0,
+1621451545687,-1,DETECTED_ACTIVITY,3.0,
+1621451548965,-1,WIFI_ACCESS_POINTS,6.0,
+1621451548968,-1,BLUETOOTH_DEVICES,1.0,
+1621451577805,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451578073,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451600883,-1,GPS_SATELLITES,38.0,
+1621451601881,-1,GPS_SATELLITES,39.0,
+1621451608979,-1,WIFI_ACCESS_POINTS,5.0,
+1621451608984,-1,BLUETOOTH_DEVICES,0.0,
+1621451645002,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451645549,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451651406,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451651591,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451690881,-1,GPS_SATELLITES,38.0,
+1621451691885,-1,GPS_SATELLITES,39.0,
+1621451701885,-1,GPS_SATELLITES,38.0,
+1621451702882,-1,GPS_SATELLITES,39.0,
+1621451704783,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451704978,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451711880,-1,GPS_SATELLITES,23.0,
+1621451728949,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451729008,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451729025,-1,WIFI_ACCESS_POINTS,7.0,
+1621451729885,-1,GPS_SATELLITES,22.0,
+1621451737883,-1,GPS_SATELLITES,39.0,
+1621451742656,-1,DETECTED_ACTIVITY,3.0,
+1621451754883,-1,GPS_SATELLITES,38.0,
+1621451755886,-1,GPS_SATELLITES,20.0,
+1621451755903,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451756086,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451756389,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451756719,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451756881,-1,GPS_SATELLITES,22.0,
+1621451763799,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451763857,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451770889,-1,GPS_SATELLITES,21.0,
+1621451771886,-1,GPS_SATELLITES,22.0,
+1621451781906,-1,GPS_FIX,1.0,
+1621451789053,-1,WIFI_ACCESS_POINTS,6.0,
+1621451790882,-1,GPS_SATELLITES,40.0,
+1621451792799,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451792916,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451809884,-1,GPS_SATELLITES,22.0,
+1621451811280,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451811338,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451820885,-1,GPS_SATELLITES,21.0,
+1621451821883,-1,GPS_SATELLITES,22.0,
+1621451822512,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451822710,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451829885,-1,GPS_SATELLITES,21.0,
+1621451830887,-1,GPS_SATELLITES,22.0,
+1621451835519,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451837052,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451847115,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451848624,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451854011,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451854208,5,TMD3725_Light Ambient Light Sensor Non-wakeup,4.0,3
+1621451866881,-1,GPS_SATELLITES,21.0,
+1621451867889,-1,GPS_SATELLITES,22.0,
+1621451888112,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621451889087,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621451953877,-1,GPS_SATELLITES,21.0,
+1621451954878,-1,GPS_SATELLITES,22.0,
+1621451958878,-1,GPS_SATELLITES,21.0,
+1621451959879,-1,GPS_SATELLITES,22.0,
+1621451969141,-1,WIFI_ACCESS_POINTS,5.0,
+1621452021634,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452021765,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452021882,-1,GPS_SATELLITES,40.0,
+1621452022419,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452024064,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452025880,-1,GPS_SATELLITES,39.0,
+1621452026881,-1,GPS_SATELLITES,40.0,
+1621452029174,-1,WIFI_ACCESS_POINTS,6.0,
+1621452055692,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452055962,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452083882,-1,GPS_SATELLITES,39.0,
+1621452085885,-1,GPS_SATELLITES,40.0,
+1621452099882,-1,GPS_SATELLITES,39.0,
+1621452100880,-1,GPS_SATELLITES,40.0,
+1621452115818,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452116090,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452124883,-1,GPS_SATELLITES,39.0,
+1621452125878,-1,GPS_SATELLITES,40.0,
+1621452137879,-1,GPS_SATELLITES,39.0,
+1621452138881,-1,GPS_SATELLITES,40.0,
+1621452149241,-1,WIFI_ACCESS_POINTS,4.0,
+1621452149705,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452151878,-1,GPS_SATELLITES,39.0,
+1621452152882,-1,GPS_SATELLITES,40.0,
+1621452154444,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452158371,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452160673,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452160884,-1,GPS_SATELLITES,39.0,
+1621452161906,-1,GPS_FIX,1.0,
+1621452162496,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452162984,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452182220,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452192375,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452209306,-1,WIFI_ACCESS_POINTS,6.0,
+1621452210878,-1,GPS_SATELLITES,22.0,
+1621452218886,-1,GPS_SATELLITES,40.0,
+1621452226504,-1,DETECTED_ACTIVITY,5.0,
+1621452226577,-1,DETECTED_ACTIVITY,3.0,
+1621452227895,-1,GPS_FIX,1.0,
+1621452269375,-1,WIFI_ACCESS_POINTS,8.0,
+1621452277474,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452279927,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452280082,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452280343,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452280530,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452283384,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452283493,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452283843,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452283862,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452284258,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452285028,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452293666,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452293878,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452294712,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452294985,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452295528,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452295948,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452298245,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452298295,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452298541,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452298618,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452300337,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452300406,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452302883,-1,GPS_SATELLITES,39.0,
+1621452303067,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452303881,-1,GPS_SATELLITES,40.0,
+1621452304880,-1,GPS_SATELLITES,39.0,
+1621452305879,-1,GPS_SATELLITES,40.0,
+1621452308279,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452309387,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452309884,-1,GPS_SATELLITES,39.0,
+1621452310882,-1,GPS_SATELLITES,40.0,
+1621452311881,-1,GPS_SATELLITES,39.0,
+1621452312879,-1,GPS_SATELLITES,40.0,
+1621452314134,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452317891,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452321905,-1,GPS_FIX,1.0,
+1621452329428,-1,WIFI_ACCESS_POINTS,7.0,
+1621452344728,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452348135,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452348206,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452348757,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452350273,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452351289,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452351451,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452351502,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452351632,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452355939,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452356944,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452357561,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452364236,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452364312,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452364432,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452364504,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452364785,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452364972,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452365049,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452365099,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452370837,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452375421,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452375442,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452375651,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452375701,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452376902,-1,GPS_FIX,1.0,
+1621452382351,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452397383,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452407732,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452408329,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452409877,-1,GPS_SATELLITES,22.0,
+1621452410838,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452410967,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452415236,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452422903,-1,GPS_FIX,1.0,
+1621452430211,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452430403,-1,DETECTED_ACTIVITY,3.0,
+1621452431746,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452444848,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452449541,-1,WIFI_ACCESS_POINTS,5.0,
+1621452450880,-1,GPS_SATELLITES,40.0,
+1621452451955,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452466908,-1,GPS_FIX,1.0,
+1621452476164,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452477180,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452477605,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452495805,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452499327,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452500988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452502055,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452509601,-1,WIFI_ACCESS_POINTS,7.0,
+1621452510876,-1,GPS_SATELLITES,39.0,
+1621452521722,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452524481,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452528593,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452538540,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452543876,-1,GPS_SATELLITES,37.0,
+1621452544882,-1,GPS_SATELLITES,39.0,
+1621452563905,-1,GPS_FIX,1.0,
+1621452569657,-1,WIFI_ACCESS_POINTS,4.0,
+1621452576883,-1,GPS_SATELLITES,38.0,
+1621452581889,-1,GPS_FIX,1.0,
+1621452583407,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452593295,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452625995,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452629729,-1,WIFI_ACCESS_POINTS,7.0,
+1621452630881,-1,GPS_SATELLITES,37.0,
+1621452631268,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452633277,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452637378,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452641628,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452645883,-1,DETECTED_ACTIVITY,3.0,
+1621452651630,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452657916,-1,GPS_FIX,1.0,
+1621452674278,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452689794,-1,WIFI_ACCESS_POINTS,4.0,
+1621452691879,-1,GPS_SATELLITES,26.0,
+1621452694878,-1,GPS_SATELLITES,27.0,
+1621452697879,-1,GPS_SATELLITES,28.0,
+1621452703886,-1,GPS_SATELLITES,37.0,
+1621452741802,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452749875,-1,WIFI_ACCESS_POINTS,7.0,
+1621452754898,-1,GPS_FIX,1.0,
+1621452785792,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452787209,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452808612,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452809947,-1,WIFI_ACCESS_POINTS,6.0,
+1621452811881,-1,GPS_SATELLITES,25.0,
+1621452813827,-1,GPS_SATELLITES,26.0,
+1621452817884,-1,GPS_SATELLITES,28.0,
+1621452825904,-1,GPS_FIX,1.0,
+1621452834576,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452836232,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452843552,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452845421,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452845638,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452845926,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452846002,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452847011,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452847087,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452847527,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621452847550,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621452852640,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452852649,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621452858423,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452867493,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452870003,-1,WIFI_ACCESS_POINTS,8.0,
+1621452871877,-1,GPS_SATELLITES,36.0,
+1621452874800,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452875395,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621452880429,5,TMD3725_Light Ambient Light Sensor Non-wakeup,2.0,3
+1621452887998,-1,MONITORING,0.0,
+1621462078559,-1,INDOOR,1.0,
+1621462078610,-1,MONITORING,1.0,
+1621462078174,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462050418,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621462078680,-1,DETECTED_ACTIVITY,3.0,
+1621462078758,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462078816,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462079050,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462079108,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621462079167,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621462079226,5,TMD3725_Light Ambient Light Sensor Non-wakeup,66.0,3
+1621462079342,5,TMD3725_Light Ambient Light Sensor Non-wakeup,62.0,3
+1621462079401,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621462079459,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621462079869,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621462079927,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621462080044,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621462080102,5,TMD3725_Light Ambient Light Sensor Non-wakeup,74.0,3
+1621462080110,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621462080160,5,TMD3725_Light Ambient Light Sensor Non-wakeup,97.0,3
+1621462080219,5,TMD3725_Light Ambient Light Sensor Non-wakeup,111.0,3
+1621462080260,-1,GPS_SATELLITES,22.0,
+1621462080269,-1,GPS_FIX_SATELLITES,0.0,
+1621462080277,5,TMD3725_Light Ambient Light Sensor Non-wakeup,128.0,3
+1621462080394,5,TMD3725_Light Ambient Light Sensor Non-wakeup,117.0,3
+1621462080453,5,TMD3725_Light Ambient Light Sensor Non-wakeup,132.0,3
+1621462080570,5,TMD3725_Light Ambient Light Sensor Non-wakeup,108.0,3
+1621462080628,5,TMD3725_Light Ambient Light Sensor Non-wakeup,83.0,3
+1621462080687,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621462080745,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621462080803,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462080862,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462080920,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462080979,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621462081071,-1,DETECTED_ACTIVITY,3.0,
+1621462081563,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462081856,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462081914,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621462081972,5,TMD3725_Light Ambient Light Sensor Non-wakeup,80.0,3
+1621462082031,5,TMD3725_Light Ambient Light Sensor Non-wakeup,101.0,3
+1621462082089,5,TMD3725_Light Ambient Light Sensor Non-wakeup,108.0,3
+1621462082148,5,TMD3725_Light Ambient Light Sensor Non-wakeup,97.0,3
+1621462082206,5,TMD3725_Light Ambient Light Sensor Non-wakeup,105.0,3
+1621462082440,5,TMD3725_Light Ambient Light Sensor Non-wakeup,62.0,3
+1621462082498,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621462082556,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462082615,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621462082732,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462082966,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621462083025,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621462083083,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621462083141,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621462083200,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621462083258,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462083317,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462083550,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621462083609,5,TMD3725_Light Ambient Light Sensor Non-wakeup,49.0,3
+1621462083668,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621462083726,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621462083784,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462083843,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462084661,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621462085830,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462085888,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462085947,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621462086006,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621462086064,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621462086181,5,TMD3725_Light Ambient Light Sensor Non-wakeup,57.0,3
+1621462086415,5,TMD3725_Light Ambient Light Sensor Non-wakeup,64.0,3
+1621462086474,5,TMD3725_Light Ambient Light Sensor Non-wakeup,86.0,3
+1621462086539,8,TMD3725_Proximity Proximity Sensor Wakeup,5.0,3
+1621462086590,5,TMD3725_Light Ambient Light Sensor Non-wakeup,93.0,3
+1621462086649,5,TMD3725_Light Ambient Light Sensor Non-wakeup,100.0,3
+1621462086707,5,TMD3725_Light Ambient Light Sensor Non-wakeup,104.0,3
+1621462086823,5,TMD3725_Light Ambient Light Sensor Non-wakeup,76.0,3
+1621462086883,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621462086940,5,TMD3725_Light Ambient Light Sensor Non-wakeup,77.0,3
+1621462086999,5,TMD3725_Light Ambient Light Sensor Non-wakeup,88.0,3
+1621462087058,5,TMD3725_Light Ambient Light Sensor Non-wakeup,94.0,3
+1621462087116,5,TMD3725_Light Ambient Light Sensor Non-wakeup,104.0,3
+1621462087174,5,TMD3725_Light Ambient Light Sensor Non-wakeup,128.0,3
+1621462087233,5,TMD3725_Light Ambient Light Sensor Non-wakeup,163.0,3
+1621462087408,5,TMD3725_Light Ambient Light Sensor Non-wakeup,139.0,3
+1621462087467,5,TMD3725_Light Ambient Light Sensor Non-wakeup,112.0,3
+1621462087525,5,TMD3725_Light Ambient Light Sensor Non-wakeup,100.0,3
+1621462087700,5,TMD3725_Light Ambient Light Sensor Non-wakeup,132.0,3
+1621462087759,5,TMD3725_Light Ambient Light Sensor Non-wakeup,169.0,3
+1621462087817,5,TMD3725_Light Ambient Light Sensor Non-wakeup,190.0,3
+1621462087876,5,TMD3725_Light Ambient Light Sensor Non-wakeup,212.0,3
+1621462087935,5,TMD3725_Light Ambient Light Sensor Non-wakeup,225.0,3
+1621462087993,5,TMD3725_Light Ambient Light Sensor Non-wakeup,265.0,3
+1621462088344,5,TMD3725_Light Ambient Light Sensor Non-wakeup,222.0,3
+1621462088402,5,TMD3725_Light Ambient Light Sensor Non-wakeup,180.0,3
+1621462088461,5,TMD3725_Light Ambient Light Sensor Non-wakeup,150.0,3
+1621462088519,5,TMD3725_Light Ambient Light Sensor Non-wakeup,122.0,3
+1621462088577,5,TMD3725_Light Ambient Light Sensor Non-wakeup,112.0,3
+1621462088636,5,TMD3725_Light Ambient Light Sensor Non-wakeup,91.0,3
+1621462088694,5,TMD3725_Light Ambient Light Sensor Non-wakeup,83.0,3
+1621462088753,5,TMD3725_Light Ambient Light Sensor Non-wakeup,71.0,3
+1621462088811,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621462088870,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621462088986,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621462089103,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621462089220,5,TMD3725_Light Ambient Light Sensor Non-wakeup,38.0,3
+1621462089279,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462089337,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621462089395,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462089454,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462089512,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621462089571,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462089629,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462089688,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462089746,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621462089804,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621462089980,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621462090097,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621462090155,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621462090331,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621462090564,5,TMD3725_Light Ambient Light Sensor Non-wakeup,11.0,3
+1621462090740,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621462090798,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621462090916,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462090974,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462091032,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462091091,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621462091149,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621462091208,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621462091325,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621462091441,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621462091500,5,TMD3725_Light Ambient Light Sensor Non-wakeup,46.0,3
+1621462091617,5,TMD3725_Light Ambient Light Sensor Non-wakeup,42.0,3
+1621462091675,5,TMD3725_Light Ambient Light Sensor Non-wakeup,71.0,3
+1621462091734,5,TMD3725_Light Ambient Light Sensor Non-wakeup,87.0,3
+1621462091792,5,TMD3725_Light Ambient Light Sensor Non-wakeup,80.0,3
+1621462091851,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621462091909,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621462092026,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621462092318,5,TMD3725_Light Ambient Light Sensor Non-wakeup,39.0,3
+1621462092377,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462092435,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462092494,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462092552,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621462092611,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462092728,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462092895,-1,DETECTED_ACTIVITY,5.0,
+1621462092903,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462092962,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462092965,-1,DETECTED_ACTIVITY,4.0,
+1621462093078,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462093137,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462093253,5,TMD3725_Light Ambient Light Sensor Non-wakeup,22.0,3
+1621462093546,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462093955,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462094014,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462094131,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462094188,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462094481,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462094539,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621462094598,5,TMD3725_Light Ambient Light Sensor Non-wakeup,53.0,3
+1621462094656,5,TMD3725_Light Ambient Light Sensor Non-wakeup,66.0,3
+1621462094714,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621462094773,5,TMD3725_Light Ambient Light Sensor Non-wakeup,25.0,3
+1621462094831,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462094890,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462094949,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462095007,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462095182,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462095241,5,TMD3725_Light Ambient Light Sensor Non-wakeup,59.0,3
+1621462095299,5,TMD3725_Light Ambient Light Sensor Non-wakeup,208.0,3
+1621462095357,5,TMD3725_Light Ambient Light Sensor Non-wakeup,263.0,3
+1621462095533,5,TMD3725_Light Ambient Light Sensor Non-wakeup,320.0,3
+1621462095708,5,TMD3725_Light Ambient Light Sensor Non-wakeup,274.0,3
+1621462095767,5,TMD3725_Light Ambient Light Sensor Non-wakeup,191.0,3
+1621462095825,5,TMD3725_Light Ambient Light Sensor Non-wakeup,141.0,3
+1621462095942,5,TMD3725_Light Ambient Light Sensor Non-wakeup,104.0,3
+1621462096000,5,TMD3725_Light Ambient Light Sensor Non-wakeup,67.0,3
+1621462096059,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621462096117,5,TMD3725_Light Ambient Light Sensor Non-wakeup,62.0,3
+1621462096293,5,TMD3725_Light Ambient Light Sensor Non-wakeup,73.0,3
+1621462096352,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621462096410,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462096527,5,TMD3725_Light Ambient Light Sensor Non-wakeup,31.0,3
+1621462096643,5,TMD3725_Light Ambient Light Sensor Non-wakeup,26.0,3
+1621462096761,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621462096819,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462096877,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621462096936,5,TMD3725_Light Ambient Light Sensor Non-wakeup,59.0,3
+1621462097111,5,TMD3725_Light Ambient Light Sensor Non-wakeup,35.0,3
+1621462097170,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462097228,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621462097279,-1,GPS_SATELLITES,44.0,
+1621462097345,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462097403,5,TMD3725_Light Ambient Light Sensor Non-wakeup,23.0,3
+1621462097462,5,TMD3725_Light Ambient Light Sensor Non-wakeup,18.0,3
+1621462097520,5,TMD3725_Light Ambient Light Sensor Non-wakeup,15.0,3
+1621462097578,5,TMD3725_Light Ambient Light Sensor Non-wakeup,12.0,3
+1621462097696,5,TMD3725_Light Ambient Light Sensor Non-wakeup,9.0,3
+1621462097813,5,TMD3725_Light Ambient Light Sensor Non-wakeup,14.0,3
+1621462097871,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462097930,5,TMD3725_Light Ambient Light Sensor Non-wakeup,19.0,3
+1621462097988,5,TMD3725_Light Ambient Light Sensor Non-wakeup,21.0,3
+1621462098047,5,TMD3725_Light Ambient Light Sensor Non-wakeup,32.0,3
+1621462098105,5,TMD3725_Light Ambient Light Sensor Non-wakeup,138.0,3
+1621462098164,5,TMD3725_Light Ambient Light Sensor Non-wakeup,166.0,3
+1621462098222,5,TMD3725_Light Ambient Light Sensor Non-wakeup,108.0,3
+1621462098280,5,TMD3725_Light Ambient Light Sensor Non-wakeup,78.0,3
+1621462098339,5,TMD3725_Light Ambient Light Sensor Non-wakeup,104.0,3
+1621462098456,5,TMD3725_Light Ambient Light Sensor Non-wakeup,121.0,3
+1621462098514,5,TMD3725_Light Ambient Light Sensor Non-wakeup,173.0,3
+1621462098572,5,TMD3725_Light Ambient Light Sensor Non-wakeup,191.0,3
+1621462098631,5,TMD3725_Light Ambient Light Sensor Non-wakeup,173.0,3
+1621462098690,5,TMD3725_Light Ambient Light Sensor Non-wakeup,155.0,3
+1621462098748,5,TMD3725_Light Ambient Light Sensor Non-wakeup,169.0,3
+1621462098807,5,TMD3725_Light Ambient Light Sensor Non-wakeup,201.0,3
+1621462098865,5,TMD3725_Light Ambient Light Sensor Non-wakeup,231.0,3
+1621462099158,5,TMD3725_Light Ambient Light Sensor Non-wakeup,250.0,3
+1621462099274,5,TMD3725_Light Ambient Light Sensor Non-wakeup,212.0,3
+1621462099333,5,TMD3725_Light Ambient Light Sensor Non-wakeup,138.0,3
+1621462099391,5,TMD3725_Light Ambient Light Sensor Non-wakeup,70.0,3
+1621462099449,5,TMD3725_Light Ambient Light Sensor Non-wakeup,60.0,3
+1621462099508,5,TMD3725_Light Ambient Light Sensor Non-wakeup,52.0,3
+1621462099567,5,TMD3725_Light Ambient Light Sensor Non-wakeup,47.0,3
+1621462099625,5,TMD3725_Light Ambient Light Sensor Non-wakeup,40.0,3
+1621462099683,5,TMD3725_Light Ambient Light Sensor Non-wakeup,29.0,3
+1621462099742,5,TMD3725_Light Ambient Light Sensor Non-wakeup,28.0,3
+1621462100093,5,TMD3725_Light Ambient Light Sensor Non-wakeup,43.0,3
+1621462100151,5,TMD3725_Light Ambient Light Sensor Non-wakeup,77.0,3
+1621462100210,5,TMD3725_Light Ambient Light Sensor Non-wakeup,124.0,3
+1621462100268,5,TMD3725_Light Ambient Light Sensor Non-wakeup,136.0,3
+1621462100385,5,TMD3725_Light Ambient Light Sensor Non-wakeup,124.0,3
+1621462100443,5,TMD3725_Light Ambient Light Sensor Non-wakeup,107.0,3
+1621462100560,5,TMD3725_Light Ambient Light Sensor Non-wakeup,93.0,3
+1621462100736,5,TMD3725_Light Ambient Light Sensor Non-wakeup,117.0,3
+1621462100794,5,TMD3725_Light Ambient Light Sensor Non-wakeup,80.0,3
+1621462100852,5,TMD3725_Light Ambient Light Sensor Non-wakeup,63.0,3
+1621462100911,5,TMD3725_Light Ambient Light Sensor Non-wakeup,59.0,3
+1621462100969,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621462101027,5,TMD3725_Light Ambient Light Sensor Non-wakeup,33.0,3
+1621462101145,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621462101204,5,TMD3725_Light Ambient Light Sensor Non-wakeup,45.0,3
+1621462101262,5,TMD3725_Light Ambient Light Sensor Non-wakeup,64.0,3
+1621462101320,5,TMD3725_Light Ambient Light Sensor Non-wakeup,80.0,3
+1621462101379,5,TMD3725_Light Ambient Light Sensor Non-wakeup,93.0,3
+1621462101437,5,TMD3725_Light Ambient Light Sensor Non-wakeup,87.0,3
+1621462101495,5,TMD3725_Light Ambient Light Sensor Non-wakeup,36.0,3
+1621462101554,5,TMD3725_Light Ambient Light Sensor Non-wakeup,16.0,3
+1621462102606,5,TMD3725_Light Ambient Light Sensor Non-wakeup,8.0,3
+1621462102614,8,TMD3725_Proximity Proximity Sensor Wakeup,0.0,3
+1621462102665,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621462102898,5,TMD3725_Light Ambient Light Sensor Non-wakeup,1.0,3
+1621462103015,5,TMD3725_Light Ambient Light Sensor Non-wakeup,0.0,3
+1621462118000,-1,INDOOR,0.0,
+1621462119855,-1,GPS_SATELLITES,43.0,
+1621462120853,-1,GPS_SATELLITES,44.0,
+1621462123161,-1,DETECTED_ACTIVITY,3.0,
+1621462124849,-1,GPS_SATELLITES,41.0,
+1621462125851,-1,GPS_SATELLITES,44.0,
+1621462134849,-1,GPS_SATELLITES,43.0,
+1621462135844,-1,GPS_SATELLITES,44.0,
+1621462136851,-1,GPS_SATELLITES,43.0,
+1621462137847,-1,GPS_SATELLITES,44.0,
+1621462138688,-1,WIFI_ACCESS_POINTS,3.0,
+1621462138689,-1,BLUETOOTH_DEVICES,0.0,
+1621462153520,-1,DETECTED_ACTIVITY,5.0,
+1621462153705,-1,DETECTED_ACTIVITY,4.0,
+1621462168850,-1,GPS_SATELLITES,43.0,
+1621462169851,-1,GPS_SATELLITES,44.0,
+1621462172873,-1,GPS_FIX,1.0,
+1621462181280,-1,DETECTED_ACTIVITY,3.0,
+1621462198774,-1,WIFI_ACCESS_POINTS,8.0,
+1621462200847,-1,GPS_SATELLITES,22.0,
+1621462208848,-1,GPS_SATELLITES,44.0,
+1621462209920,-1,GPS_FIX,1.0,
+1621462214112,-1,DETECTED_ACTIVITY,4.0,
+1621462244443,-1,DETECTED_ACTIVITY,2.0,
+1621462258907,-1,WIFI_ACCESS_POINTS,16.0,
+1621462274828,-1,DETECTED_ACTIVITY,2.0,
+1621462310152,-1,DETECTED_ACTIVITY,4.0,
+1621462318960,-1,WIFI_ACCESS_POINTS,0.0,
+1621462340389,-1,DETECTED_ACTIVITY,3.0,
+1621462370659,-1,DETECTED_ACTIVITY,3.0,
+1621462400910,-1,DETECTED_ACTIVITY,3.0,
+1621462410786,-1,GPS_SATELLITES,43.0,
+1621462411842,-1,GPS_SATELLITES,44.0,
+1621462414873,-1,GPS_FIX,1.0,
+1621462433054,-1,DETECTED_ACTIVITY,3.0,
+1621462441870,-1,GPS_FIX,1.0,
+1621462463333,-1,DETECTED_ACTIVITY,4.0,
+1621462493614,-1,DETECTED_ACTIVITY,4.0,
+1621462499278,-1,WIFI_ACCESS_POINTS,9.0,
+1621462503866,-1,GPS_FIX,1.0,
+1621462520551,-1,DETECTED_ACTIVITY,4.0,
+1621462550805,-1,DETECTED_ACTIVITY,4.0,
+1621462559436,-1,WIFI_ACCESS_POINTS,4.0,
+1621462562851,-1,GPS_FIX,1.0,
+1621462562913,-1,DETECTED_ACTIVITY,4.0,
+1621462580758,-1,DETECTED_ACTIVITY,2.0,
+1621462611197,-1,DETECTED_ACTIVITY,4.0,
+1621462619554,-1,WIFI_ACCESS_POINTS,6.0,
+1621462623104,-1,DETECTED_ACTIVITY,4.0,
+1621462623871,-1,GPS_FIX,1.0,
+1621462641291,-1,DETECTED_ACTIVITY,4.0,
+1621462671573,-1,DETECTED_ACTIVITY,4.0,
+1621462679701,-1,WIFI_ACCESS_POINTS,7.0,
+1621462680814,-1,GPS_SATELLITES,42.0,
+1621462684880,-1,GPS_FIX,1.0,
+1621462700991,-1,DETECTED_ACTIVITY,4.0,
+1621462720402,-1,INDOOR,0.0,
+1621462724610,-1,MONITORING,0.0,
