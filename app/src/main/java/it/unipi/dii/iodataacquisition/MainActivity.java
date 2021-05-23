@@ -245,7 +245,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	{
 		if (isServiceRunning())
 			return;
-
 		File outputFile = new File(getFilesDir() + File.separator + "collected-data.csv");
 		if (!outputFile.exists()) {
 			CSVWriter writer;
@@ -364,7 +363,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId)
 	{
-		if (group.getId() == R.id.ioSwitch && boundService != null)
+		if (group.getId() == R.id.ioSwitch && boundService!=null)
 			boundService.setIndoor(checkedId == R.id.indoorButton);
 	}
 

@@ -384,6 +384,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 	public void setIndoor(boolean indoor)
 	{
+		Log.d(TAG, "SET INDOOR: " + indoor + "; WAS: " + this.indoor);
 		if (indoor != this.indoor) {
 			SensorData data = new SensorData("INDOOR", indoor ? 1 : 0);
 			collectedData.add(data);
