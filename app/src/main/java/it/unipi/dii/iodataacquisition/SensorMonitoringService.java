@@ -32,14 +32,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-
 import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.tasks.Task;
 import com.opencsv.CSVWriter;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -48,6 +45,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class SensorMonitoringService extends Service implements SensorEventListener, LocationListener
 {
 	private static final String TAG = SensorMonitoringService.class.getName();
+
+	/*----------------------------------CONSTANT-INTERVALS----------------------------------*/
 	private static final long SCAN_INTERVAL = 60;
 	private static final long PERIODIC_DELAY = 1000;
 	private static final long WIFI_BT_COLLECT_INTERVAL = 60;
@@ -55,11 +54,13 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	private static final long WAKELOCK_TIMEOUT = 120 * 60 * 1000L;
 	private static final long GPS_UPDATE_INTERVAL = 30 * 1000L;
 	private static final long ACTIVITY_COLLECTION_INTERVAL = 30 * 1000;
+	/*----------------------------------------------------------------------------------------*/
 
 	private SensorManager sensorManager;
 	private WifiManager wifiManager;
 	private BluetoothAdapter bluetoothAdapter;
 	private LocationManager locationManager;
+	/*Temporary list of datas collected from the sensors*/
 	private final ConcurrentLinkedQueue<SensorData> collectedData = new ConcurrentLinkedQueue<>();
 	private Handler periodicHandler;
 	private Runnable periodicRunnable;
@@ -77,26 +78,6 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 
 	private ActivityRecognitionClient mActivityRecognitionClient;
 
-	@Override
-	public void onLocationChanged(@NonNull Location location)
-	{
-	}
-
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras)
-	{
-	}
-
-	@Override
-	public void onProviderEnabled(@NonNull String provider)
-	{
-	}
-
-	@Override
-	public void onProviderDisabled(@NonNull String provider)
-	{
-	}
-
 	public class ServiceBinder extends Binder
 	{
 		SensorMonitoringService getService()
@@ -110,10 +91,14 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		indoor = false;
 	}
 
+	/*Utility function that is used in order to start the scan both for Bluetooth devices and
+	* for the Wi-Fi Access Points.*/
 	private void scan()
 	{
+		/*Scan only SCAN_INTERVAL seconds*/
 		if (System.currentTimeMillis() - lastScan < SCAN_INTERVAL * 1000)
 			return;
+		/*Update the value of the last scan*/
 		lastScan = System.currentTimeMillis();
 		if (!wifiManager.isWifiEnabled())
 			Log.w(TAG, "WiFi is not enabled.");
@@ -126,18 +111,24 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 				Log.e(TAG, "Failed to start BT discovery.");
 	}
 
+	/*Called by the system every time the MainActivity explicitly starts the service by calling
+	* Context.startService(Intent). Note that the intent contains the current setting in Boolean
+	* format INDOOR -> true, OUTDOOR -> false.*/
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
 		boolean isIndoor = intent.getBooleanExtra("Indoor", false);
 		indoor = !isIndoor;
 		setIndoor(isIndoor);
+
 		sensorManager = (SensorManager) getApplicationContext().getSystemService(SENSOR_SERVICE);
 		wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
 		mActivityRecognitionClient = new ActivityRecognitionClient(getApplicationContext());
 
+		/*Function that will periodically executed by the Foreground Service, in particular
+		* every PERIODIC_DELAY MilliSeconds the function periodicCollection will be called*/
 		periodicHandler = new Handler(Looper.getMainLooper());
 		periodicRunnable = new Runnable()
 		{
@@ -149,11 +140,16 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			}
 		};
 
+		/*Get the reference to the LightSensor and register this class as the listener for
+		* values from that sensor.*/
 		Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 		if (lightSensor == null)
 			Log.e(TAG, "Device does not have a light sensor!");
 		else if (!sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_FASTEST))
 			Log.e(TAG, "Unable to register listener for sensor " + lightSensor.getName() + ".");
+
+		/*Get the reference to the ProximitySensor and register this class as the listener for
+		 * values from that sensor.*/
 		Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 		if (proximitySensor == null)
 			Log.e(TAG, "Device does not have a proximity sensor!");
@@ -161,11 +157,15 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			Log.e(TAG, "Unable to register listener for sensor " + proximitySensor.getName() + ".");
 		periodicHandler.post(periodicRunnable);
 
+		/*Register a new instance of the WiFiAPCounter class as BroadcastReceiver both
+		* for SCAN_RESULTS_AVAILABLE_ACTION */
 		wiFiAPCounter = new WiFiAPCounter();
 		IntentFilter intentFilter_WIFI = new IntentFilter();
 		intentFilter_WIFI.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
 		getApplicationContext().registerReceiver(wiFiAPCounter, intentFilter_WIFI);
 
+		/*Register a new instance of the BLTCounter class as BroadcastReceiver both for
+		* ACTION_DISCOVERY_FINISHED and ACTION_FOUND */
 		bltCounter = new BLTCounter();
 		IntentFilter intentFilter_BLT = new IntentFilter();
 		intentFilter_BLT.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
@@ -175,22 +175,27 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 			Log.e(TAG, "ACCESS_FINE_LOCATION not granted. Can not get GPS status.");
 		} else {
+			/*GPS callback registration*/
 			locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
 			gnssStatusCallback = new GnssStatus.Callback() {
 				@Override
 				public void onStarted()
 				{
+					Log.i(TAG, "onStarted: gnssStatusCallback -> Started ");
 				}
 
 				@Override
 				public void onStopped()
 				{
+					Log.i(TAG, "onStarted: gnssStatusCallback -> Stopped ");
 				}
 
 				@SuppressLint("MissingPermission")
 				@Override
 				public void onFirstFix(int ttffMillis)
 				{
+					/*Data about the last time when a GPS fix was performed are
+					* added to the temporary list and used to update the GUI. */
 					SensorData data = new SensorData("GPS_FIX", 1);
 					collectedData.add(data);
 					sendSensorDataToActivity(data);
@@ -201,6 +206,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 				{
 					int satCount = status.getSatelliteCount();
 					if (satCount != lastSatCount) {
+						/*If the number of GPS satellites on the line of sight
+						* changes the new value is added to the temporary
+						* list and the GUI is properly updated*/
 						SensorData data = new SensorData("GPS_SATELLITES", satCount);
 						collectedData.add(data);
 						sendSensorDataToActivity(data);
@@ -212,6 +220,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 						if (status.usedInFix(i))
 							fixCount++;
 					if (fixCount != lastFixCount) {
+						/*If the number of GPS satellites fixed
+						* changes the new value is added to the temporary
+						* list and the GUI is properly updated*/
 						SensorData data = new SensorData("GPS_FIX_SATELLITES", fixCount);
 						collectedData.add(data);
 						sendSensorDataToActivity(data);
@@ -224,6 +235,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 				GPS_UPDATE_INTERVAL, 0, this);
 		}
 
+		/*Request the Google Activity Recognition API to perform the Activity recognition
+		* and register the Intent Service that will receive the results.*/
 		Task<Void> task = mActivityRecognitionClient.requestActivityUpdates(
 			ACTIVITY_COLLECTION_INTERVAL,
 			getActivityDetectionPendingIntent());
@@ -261,6 +274,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		startForeground(1, notification);
 	}
 
+	/*Utility function that creates the Notification associated to this foreground service*/
 	private Notification createNotification()
 	{
 		String notificationChannelId = "IO DATA ACQUISITION NOTIFICATION CHANNEL";
@@ -299,6 +313,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		return binder;
 	}
 
+	/*Method called when the vaules detected by the hardware sensors(Light Sensor and Proximity
+	* Sensor) changes*/
 	@Override
 	public void onSensorChanged(SensorEvent event)
 	{
@@ -306,11 +322,22 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			|| (event.sensor.getType() != Sensor.TYPE_LIGHT
 			&& event.sensor.getType() != Sensor.TYPE_PROXIMITY))
 			return;
+		/*The data obtained from the sensor will be encoded in a new object SensorData and
+		* added to the list collected data.*/
 		SensorData data = new SensorData(event);
 		collectedData.add(data);
 		sendSensorDataToActivity(data);
 	}
 
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy)
+	{
+		Log.i(TAG, "onAccuracyChanged: sensor = " + sensor.toString() + "accuracy = "
+			+ accuracy);
+	}
+
+	/*Utility function that is used in order to send the updates to the Main Activity in order
+	* to update properly the GUI.*/
 	private void sendSensorDataToActivity(SensorData data)
 	{
 		Intent intent = new Intent("it.unipi.dii.iodataacquisition.SENSORDATA");
@@ -318,17 +345,22 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		getApplicationContext().sendBroadcast(intent);
 	}
 
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy)
-	{
-	}
-
+	/*This method is used in order to store the data acquired from the sensor in the .csv file
+	* and the temporary list of data collected is flushed.
+	* Synchronized method is a method which can be used by only one thread at a time in this
+	* case, the flush method can be called both from:
+	* - MainActivity
+	* - SensorMonitoringService
+	* force argument is used in order to force the data log even if the time elapsed is not
+	* sufficient.*/
 	public synchronized void flush(boolean force)
 	{
+		/*Check if at least FLUSH_INTERVAL seconds have been passed*/
 		if (!force && System.currentTimeMillis() - lastFlush < FLUSH_INTERVAL * 1000)
 			return;
 		lastFlush = System.currentTimeMillis();
 
+		/*Write to the csv file all the data temporary stored locally*/
 		File output = new File(getFilesDir() + File.separator + "collected-data.csv");
 		CSVWriter writer;
 		try {
@@ -353,6 +385,8 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		flush(false);
 	}
 
+	/*Utility function that calls the getter from the WiFiAPCounter and the BLTCounter in order
+	* to get the value of the number of Bluetooth devices and Wi-Fi Access points in the nearby.*/
 	private void collectCounters()
 	{
 		if (System.currentTimeMillis() - lastWiFiBTCheck < WIFI_BT_COLLECT_INTERVAL * 1000)
@@ -382,6 +416,7 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 			locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this, Looper.getMainLooper());
 	}
 
+	/*Function used in order to log transitions between an indoor and outdoor setting*/
 	public void setIndoor(boolean indoor)
 	{
 		Log.d(TAG, "SET INDOOR: " + indoor + "; WAS: " + this.indoor);
@@ -396,7 +431,9 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 	{
 		return indoor;
 	}
-
+	/*Function periodically called that will collect all the fresh recently acquired values store
+	* in into a csv file and start again the scanning for Wi-Fi Access Point and Bluetooth
+	* devices*/
 	public synchronized void periodicCollection()
 	{
 		collectCounters();
@@ -434,14 +471,43 @@ public class SensorMonitoringService extends Service implements SensorEventListe
 		super.onDestroy();
 	}
 
+	/*BroadcastReceiver for the Activity Detected by the Google Activity Detection API that is
+	* is sent by the DetectedActivitiesIntentService*/
 	private final BroadcastReceiver activityDataReceiver = new BroadcastReceiver()
 	{
 		@Override
 		public void onReceive(Context context, Intent intent)
 		{
+			/*Add to the list of the data collected the Activity Detection detected*/
 			SensorData activityData = intent.getParcelableExtra("data");
 			collectedData.add(activityData);
 			sendSensorDataToActivity(activityData);
 		}
 	};
+
+	@Override
+	public void onLocationChanged(@NonNull Location location)
+	{
+		Log.i(TAG, "onLocationChanged: location = " + location.toString());
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras)
+	{
+		Log.i(TAG, "onStatusChanged: provider = " + provider);
+		Log.i(TAG, "onStatusChanged: status = " + status);
+		Log.i(TAG, "onStatusChanged: extras = " + extras.toString());
+	}
+
+	@Override
+	public void onProviderEnabled(@NonNull String provider)
+	{
+		Log.i(TAG, "onProviderEnabled: provider = " + provider);
+	}
+
+	@Override
+	public void onProviderDisabled(@NonNull String provider)
+	{
+		Log.i(TAG, "onProviderDisabled: provider = " + provider);
+	}
 }

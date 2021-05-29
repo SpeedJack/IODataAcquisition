@@ -25,14 +25,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
-
 import com.opencsv.CSVWriter;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,17 +37,58 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 import info.hoang8f.android.segmented.SegmentedGroup;
 
 import static com.google.android.gms.location.DetectedActivity.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener
 {
+	private static final String TAG = MainActivity.class.getName();
+	/*The request code associated to the request for the Bluetooth activation*/
 	private static final int REQUEST_ENABLE_BT = 0xBEEF;
 
+	/*Request code associated to the permissions requests*/
+	private static final int ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE = 100;
+	private static final int ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE = 101;
+	private static final int ACTIVITY_RECOGNITION_PERMISSION_CODE = 102;
+
+	/*Reference to the SensorMonitoringService*/
+	private SensorMonitoringService boundService;
+	/*This Intent will contain the description of the SensorMonitoringService.*/
 	private Intent serviceIntent;
 
+	/*Utility function used in order to convert the timestamp into a string that contains the date*/
+	private String getDate(long time)
+	{
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
+		return formatter.format(new Date(time));
+	}
+
+	/*Utility function to convert the activity recognized by the Google API expressed (int) to
+	the correspondent string value*/
+	private String ActivityToString(int activityType){
+		switch (activityType){
+			case  IN_VEHICLE:
+				return "In vehicle";
+			case ON_BICYCLE:
+				return "On bicycle";
+			case ON_FOOT:
+				return "On foot";
+			case  RUNNING:
+				return "Running";
+			case STILL:
+				return "Still";
+			case  TILTING:
+				return  "Tilting";
+			case WALKING:
+				return "Walking";
+			default:
+				return "Unknown";
+		}
+	}
+
+
+	/*This is the BroadcastReceiver responsible for updating the GUI*/
 	private final BroadcastReceiver sensorDataReceiver = new BroadcastReceiver()
 	{
 		@Override
@@ -93,19 +131,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 	};
 
-	private static final String TAG = MainActivity.class.getName();
+	private void setMonitoringEnabled()
+	{
+		setMonitoringEnabled(true);
+	}
 
-	private static final int ACCESS_FINE_LOCATION_STATE_PERMISSION_CODE = 100;
-	private static final int ACCESS_BACKGROUND_LOCATION_PERMISSION_CODE = 101;
-	private static final int ACTIVITY_RECOGNITION_PERMISSION_CODE = 102;
+	/*Function that update the GUI in order to show if the smartphone is currently monitoring*/
+	private void setMonitoringEnabled(boolean enabled)
+	{
+		TextView statusTextView = findViewById(R.id.monitoringStatusTextView);
+		statusTextView.setCompoundDrawablesRelativeWithIntrinsicBounds(enabled ?
+				R.drawable.monitoring_enabled : R.drawable.monitoring_disabled,
+			0, 0, 0);
+		statusTextView.setText(enabled ?
+			R.string.monitoring_service_enabled : R.string.monitoring_service_disabled);
+		ToggleButton toggleButton = findViewById(R.id.monitoringToggleButton);
+		toggleButton.setChecked(enabled);
+		/* User has the possibility to delete or share the log only if the smartphone is not
+		monitoring */
+		Button shareButton = findViewById(R.id.shareButton);
+		shareButton.setEnabled(!enabled);
+		Button deleteButton = findViewById(R.id.deleteButton);
+		deleteButton.setEnabled(!enabled);
+	}
 
-	private SensorMonitoringService boundService;
-
+	/*Class for monitoring the state of the service*/
 	private final ServiceConnection serviceConnection = new ServiceConnection() {
+		/*Called when a connection to the SensorMonitoringService has been established*/
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service)
 		{
+			/*Obtain a reference to the SensorMonitoringService*/
 			boundService = ((SensorMonitoringService.ServiceBinder)service).getService();
+			/*Update properly the GUI*/
 			SegmentedGroup ioSwitch = findViewById(R.id.ioSwitch);
 			ioSwitch.check(boundService.isIndoor() ? R.id.indoorButton : R.id.outdoorButton);
 		}
@@ -123,15 +181,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 	};
 
+	/*Generic function that is used in order to request to user permissions*/
 	private void checkPermission(String permission, int requestCode)
 	{
 		if (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED) {
 			Log.d(TAG, "Permission " + permission + " already granted.");
 			return;
 		}
+		/*If the permission is not already granted we request it*/
 		requestPermissions(new String[] { permission }, requestCode);
 	}
 
+	/*Generic function that is called when the users gives the permission*/
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
 	{
@@ -148,15 +209,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		Log.d(TAG, permissionName + " " + (granted ? "granted." : "denied."));
 	}
 
-	private String getDate(long time)
-	{
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
-		return formatter.format(new Date(time));
-	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
 	{
+		/*if the user turn on the Bluetooth a Toast is created and shown*/
 		if(requestCode == REQUEST_ENABLE_BT)
 			if(resultCode == RESULT_OK)
 				Toast.makeText(MainActivity.this, "Bluetooth turned on", Toast.LENGTH_SHORT).show();
@@ -172,9 +228,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		setContentView(R.layout.activity_main);
 
 		SegmentedGroup ioSwitch = findViewById(R.id.ioSwitch);
+		/*We select OUTDOOR as default in the radio button*/
 		ioSwitch.check(R.id.outdoorButton);
+		/*If the SensorMonitoringService is running we properly update the GUI*/
 		boolean serviceRunning = isServiceRunning();
 		setMonitoringEnabled(serviceRunning);
+		/*If the SensorMonitoringService is running we bind it*/
 		if (serviceRunning) {
 			if (serviceIntent == null)
 				serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
@@ -183,6 +242,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				stopMonitoring();
 			}
 		}
+		/* We register the current class as listener in order to catch the transition
+		between indoor and outdoor that user indicates by means of the radio button */
 		ioSwitch.setOnCheckedChangeListener(this);
 	}
 
@@ -190,15 +251,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	protected void onPause()
 	{
 		super.onPause();
+		/*Unregister the BroadcastReceiver that updates the GUI*/
 		if (isServiceRunning())
 			try {
 				unregisterReceiver(sensorDataReceiver);
-			} catch (Exception ignored) {
+			} catch (Exception exception) {
+				exception.printStackTrace();
 			}
+		/*Unbind the SensorMonitoringService*/
 		if (boundService != null)
 			try {
 				unbindService(serviceConnection);
-			} catch (Exception ignored) {
+			} catch (Exception exception) {
+				exception.printStackTrace();
 			}
 		boundService = null;
 	}
@@ -207,11 +272,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	protected void onResume()
 	{
 		super.onResume();
+		/*If the SensorMonitoringService is running we properly update the GUI*/
 		boolean serviceRunning = isServiceRunning();
 		setMonitoringEnabled(serviceRunning);
+		/*We register the BroadcastReceiver in order to obtain updates for the GUI*/
 		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
 		if (!serviceRunning)
 			return;
+		/*If the SensorMonitoringService is running we obtain again a reference to the SensorMonitoringService*/
 		if (serviceIntent == null)
 			serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
 		if (boundService == null && !bindService(serviceIntent, serviceConnection, 0)) {
@@ -220,31 +288,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 	}
 
-	private void setMonitoringEnabled(boolean enabled)
-	{
-		TextView statusTextView = findViewById(R.id.monitoringStatusTextView);
-		statusTextView.setCompoundDrawablesRelativeWithIntrinsicBounds(enabled ?
-			R.drawable.monitoring_enabled : R.drawable.monitoring_disabled,
-			0, 0, 0);
-		statusTextView.setText(enabled ?
-			R.string.monitoring_service_enabled : R.string.monitoring_service_disabled);
-		ToggleButton toggleButton = findViewById(R.id.monitoringToggleButton);
-		toggleButton.setChecked(enabled);
-		Button shareButton = findViewById(R.id.shareButton);
-		shareButton.setEnabled(!enabled);
-		Button deleteButton = findViewById(R.id.deleteButton);
-		deleteButton.setEnabled(!enabled);
-	}
-
-	private void setMonitoringEnabled()
-	{
-		setMonitoringEnabled(true);
-	}
-
 	private void startMonitoring()
 	{
 		if (isServiceRunning())
 			return;
+		/*Get a reference to the file where the data will be logged, if the file doesn't
+		* exists will be created with the corresponding headers.*/
 		File outputFile = new File(getFilesDir() + File.separator + "collected-data.csv");
 		if (!outputFile.exists()) {
 			CSVWriter writer;
@@ -260,7 +309,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				return;
 			}
 		}
-
+		/*Check if the user has already granted the necessary permissions, if not they will
+		* be requested. */
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
 			checkPermission(Manifest.permission.ACTIVITY_RECOGNITION, ACTIVITY_RECOGNITION_PERMISSION_CODE);
 		checkPermission(Manifest.permission.ACCESS_FINE_LOCATION,
@@ -275,10 +325,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		if (bluetoothAdapter == null) {
 			Log.e(TAG, "startMonitoring: Device doesn't support bluetooth.");
 		} else if (!bluetoothAdapter.isEnabled()) {
+			/*If the Bluetooth is off we request the user to turn it on*/
 			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 		}
 
+		/*Into the intent used to start the SensorMonitoringService in foreground we include
+		* the current setting as indicated by the user.*/
 		serviceIntent = new Intent(MainActivity.this, SensorMonitoringService.class);
 		serviceIntent.putExtra("Indoor", ((RadioButton)findViewById(R.id.indoorButton)).isChecked());
 
@@ -292,28 +345,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			return;
 		}
 
+		/*We register the BroadcastReceiver in order to properly update the GUI*/
 		registerReceiver(sensorDataReceiver, new IntentFilter("it.unipi.dii.iodataacquisition.SENSORDATA"));
 		setMonitoringEnabled();
 	}
 
+	/*Function that is used in order to stop the SensorMonitoringService*/
 	private void stopMonitoring()
 	{
 		if (!isServiceRunning())
 			return;
 		try {
+			/*We unregister the BroadcastReceiver that is used in order to update the
+			* GUI*/
 			unregisterReceiver(sensorDataReceiver);
 		} catch (Exception e) {
 			Log.d(TAG, "BroadcastReceiver already unregistered.");
 		}
 		if (boundService != null) {
+			/*We call the flush function on the reference of the SensorMonitoringService
+			* class in order to save the last value logged.*/
 			boundService.flush(true);
+			/*We unbind the connection with the SensorMonitoringService*/
 			unbindService(serviceConnection);
 		}
 		if (serviceIntent != null)
+			/*Request to stop the SensorMonitoringService.*/
 			stopService(serviceIntent);
+		/*Properly update the GUI*/
 		setMonitoringEnabled(false);
 	}
 
+	/*Utility function that select the proper function to call if the SensorMonitoringService is
+	* is running.*/
 	private void toggleMonitoring()
 	{
 		if (isServiceRunning())
@@ -322,6 +386,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			startMonitoring();
 	}
 
+	/*Function that is used in order to share the log .csv file.*/
 	private void shareLog()
 	{
 		String filePath = getFilesDir() + File.separator + "collected-data.csv";
@@ -339,6 +404,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		startActivity(Intent.createChooser(intentShareFile, "Share Log"));
 	}
 
+	/*Function that is used in order to delete the log .csv file, after that the buttons delete
+	* and share are disabled.*/
 	private void deleteLog()
 	{
 		String filePath = getFilesDir() + File.separator + "collected-data.csv";
@@ -349,6 +416,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 	}
 
+	/*General onClick function that is shared by all the buttons*/
 	@Override
 	public void onClick(View v)
 	{
@@ -360,6 +428,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			deleteLog();
 	}
 
+	/*When the user change the value of the radio button the function in setIndoor of the class
+	* SensorMonitoringService is called in order to register the users transition through the
+	* reference to the SensorMonitoringService.*/
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId)
 	{
@@ -377,6 +448,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		((RadioButton)findViewById(R.id.indoorButton)).setTextSize(textSize);
 	}
 
+	/*Utility function that is used in order to change the text size in order to fill the screen
+	* size.*/
 	public int getTextSizeRadioButtons(float textSize, int width)
 	{
 		Paint paint = new Paint();
@@ -391,6 +464,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			return (int) (textSize - 5);
 	}
 
+	/*Utility function that can be used in order to check if the SensorMonitoringService is
+	* currently running*/
 	private boolean isServiceRunning()
 	{
 		ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -398,26 +473,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			if (SensorMonitoringService.class.getName().equals(service.service.getClassName()))
 				return true;
 		return false;
-	}
-
-	private String ActivityToString(int activityType){
-		switch (activityType){
-			case  IN_VEHICLE:
-				return "In vehicle";
-			case ON_BICYCLE:
-				return "On bicycle";
-			case ON_FOOT:
-				return "On foot";
-			case  RUNNING:
-				return "Running";
-			case STILL:
-				return "Still";
-			case  TILTING:
-				return  "Tilting";
-			case WALKING:
-				return "Walking";
-			default:
-				return "Unknown";
-		}
 	}
 }

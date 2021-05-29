@@ -8,10 +8,10 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.Log;
 
+/*This class is responsible to contains the data acquired*/
 public class SensorData implements Parcelable
 {
 	private static final String TAG = SensorData.class.getName();
-
 	private final String sensorName;
 	private final int sensorType;
 	private final long timestamp;
@@ -78,6 +78,7 @@ public class SensorData implements Parcelable
 		this(source.readString(), source.readInt(), source.readLong(), source.readFloat(), (Integer)source.readValue(null));
 	}
 
+	/*-----------------------------------------GETTER-----------------------------------------*/
 	public String getSensorName()
 	{
 		return sensorName;
@@ -97,6 +98,7 @@ public class SensorData implements Parcelable
 	{
 		return value;
 	}
+	/*----------------------------------------------------------------------------------------*/
 
 	public String[] toStringArray()
 	{
