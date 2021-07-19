@@ -1,5 +1,6 @@
 # IODataAcquisition
 ### IODataAcquistion Application
+This application is part of the university project for the course of Mobile and Social Sensing Systems. The overall idea is to study possible improvement -related to context awarness- on the distance estimation problem. In particular, we focus our attention on the problem of estimating distance with smartphone's Bluetooth module and the differences between an Indoor and Outdoor setting.
 In order acquire a dataset -to train a neural network able to classify if the users is indoor or outdoor- this application was developed. In particular, this Android application acquire and store in a file called _data-collected.csv_ the following data :
 * Values detected by the proximity sensor
 * Values detected by the light sensor
