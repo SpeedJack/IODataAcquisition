@@ -26,4 +26,4 @@ The application interface is the following: </br>
 At the top of the application there is the button **START** that can be used in order to start the data acquisition, and the radio button **INDOOR** and **OUTDOOR** that can be used in order to label the data acquired by the sensors. The list of the data acquired from the sensors is displayed in order to give a glance to whats going on. At the application bottom there are two different buttons: **SHARE** in order to ease the recorded data sharing and **DELETE** that instead can be used in order to delete all the data recorded up to now. 
 
 ### Neural Network
-The "nn" folder contains the Colab notebook that were used
+The "nn" folder contains both the Jupyter notbooks that were used in order to extract the feature vectors from the raw data obtained by the Android application and the Colab notebooks that were used in order to train and test our custom neural network.
